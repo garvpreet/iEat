@@ -28,6 +28,12 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
+
+    <!-- Links from food truck -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="style.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -208,14 +214,15 @@
     <div class="container">
         {{--<div class="row">--}}
 
-            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <!-- Start of hidden section -->
+            <div hidden class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                 <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                     <h2>Food Menu</h2>
                     <h4>we have special menus</h4>
                 </div>
             </div>
 
-            <div class="row">
+            <div hidden class="row">
                 @foreach($value as $item)
 
                 <div class="col-md-6 col-sm-6">
@@ -234,7 +241,117 @@
                 @endforeach
 
             </div>
+            <!-- end of hidden section -->
 
+            <!-- New code from Food truck -->
+            <?php
+/**
+ * index.php generates the initial page the user sees when using this app.
+ * It uses the class file food.php to instantiate the food objects that store the data for the menu:
+ * The food names, description and price.
+ *
+ * In addition, this page contains a form that has:
+ *      dropdown selection of the available food items;
+ *      number input field for the quantity
+ *      button to add more items
+ *      button to submit the order
+ *
+ * Invalid input(no values) is prevented by HTML required tags,
+ * and by checking the input upon submission,
+ * notifying the user the selection was invalid and providing the option to go back.
+ *
+ */
+
+require "food.php";
+//Building the form dynamically, from an array of objects
+
+//instantiate initial objects representing the types of food offered
+$pizza   = new Food("pizza");
+$burrito = new Food("burrito");
+$salad   = new Food("salad");
+$curry   = new Food("curry");
+
+
+/** @var array $foodOffer is an array of the available food objects*/
+$foodOffer = array(
+    $pizza,
+    $burrito,
+    $salad,
+    $curry
+);
+
+//include 'includes/header.php';
+?>
+
+
+    <div class="col-sm-6">
+    <h3>Menu</h3>
+<?php
+//iterate through the array of food objects and populate the menu with data from the objects
+foreach ($foodOffer as $food) {
+    echo '<div class = "menuItem">
+              <h5 class="foodName">' . $food->name . '</h5>
+              <p class="price"> | $' . $food->price . '</p>
+              <p>' . $food->description . '</p>
+              </div>';
+}
+
+?>
+   </div>
+<div id="template" class="hide">
+    <div class="singleItem">
+        <select class="item" name="items[]" required aria-required="true">
+            <option value="" disabled selected>I want..</option>
+            <?php
+
+//create the food select dropdown
+foreach ($foodOffer as $food) {
+    echo '<option value="' . $food->type . '">' . $food->name . '</option>';
+}
+?>
+
+        </select>
+
+        <input type="number" name="quantity[]" min="1" max="10" placeholder="How many?" required>
+        <input type="button" class="removeItem" value="-">
+
+
+        <?php
+//create the additional toppings
+foreach ($foodOffer as $food) {
+    
+    
+    $availableToppings = $food->extras;
+    //           echo var_dump($availableToppings);
+    if ($availableToppings) {
+        echo '<div class="hide toppings ' . $food->type . '">
+                          <p>Additional Toppings - $0.75 each</p>';
+        foreach ($availableToppings as $topping) {
+            echo '<label><input type="checkbox" value="' . $topping . '">' . $topping . '</label>';
+        }//end of foreach
+        echo '</div>';
+    }//end of if statement
+}//end of foreach statement
+?>
+   </div>
+</div>
+
+<form method="post" action="formhandler.php">
+    <div id = "food" class="col-sm-6">
+        <img src="images/foodtruck.jpg" alt="Image of FoodTruck" class="img-responsive center-block img-thumbnail">
+        <h4 class="text-center">What do you feel like eating today?</h4>
+        <div class="form-group buttons">
+            <input type="button" id="addItem" value="Add More">
+            <input type="submit" value=" Place Order">
+        </div>
+    </div>
+
+</form>
+
+<?php
+//include 'includes/footer.php';
+?>
+            <!-- End of code from Food truck -->
 
         </div>
     {{--</div>--}}
@@ -494,6 +611,9 @@
 <script src="js/wow.min.js"></script>
 
 <script src="js/custom.js"></script>
+
+<!-- javscript js from Food truck -->
+<script src="script.js"></script>
 
 </body>
 </html>
