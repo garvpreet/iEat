@@ -275,7 +275,7 @@ a:focus {
 #feature .feature-thumb {
   background-color: #ffffff;
   position: relative;
-  padding: 40px;
+  padding: 40px 0px;
   margin-top: 32px;
 }
 #feature .feature-icon {
