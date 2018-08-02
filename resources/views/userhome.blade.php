@@ -81,6 +81,17 @@
                 <!-- <li><a href="#gallery" class="smoothScroll">Gallery</a></li> -->
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
                 <li><a href="#team" class="smoothScroll">Team</a></li>
+
+                @if(Illuminate\Support\Facades\Auth::check())
+                    <li><a href="#">
+                        {{'('}}
+                        {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                        {{')'}}
+                    </a></li>
+                @else 
+                    <li><a href='{!! url('/home'); !!}'>login</a></li>
+                @endif
+                
             </ul>
         </div>
 
@@ -158,55 +169,14 @@
 
             <div class="wow fadeInUp col-md-5 col-sm-7" data-wow-delay="0.5s">
 
-                <!-- <div class="flexslider">
-                    <ul class="slides">
-                        @foreach($value1 as $item1)
-                        <li>
-                            <img src="{{'/storage/aboutsection/'.$item1->photo}}" class="img-responsive" alt="Flexslider" height="200" width="300">
-                        </li>
-                        @endforeach
-                        {{--<li>--}}
-                            {{--<img src="images/slide-img2.jpg" alt="Flexslider">--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<img src="images/slide-img3.jpg" alt="Flexslider">--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<img src="images/b5.jpeg" alt="Flexslider">--}}
-                        {{--</li>--}}
-
-                    </ul>
-                </div> -->
-
                 <p>iEat Restaurent serves mouth-watering freshly prepared pizzas. We wont give you a chance of disappointment!!</p>
             </div>
 
-            <!-- <div class="wow fadeInUp col-md-4 col-sm-12" data-wow-delay="0.9s">
-                <h2>Fine Dining</h2>
-                <p>Daffodil Green Garden Restaurent is one of the beautiful restaurent in Dhaka</p>
-                <p>Our speical food is Beef Vindaloo. Butter Chicken. Carrot Halwa. Chaat Papri. Cham-Cham.</p>
-            </div> -->
 
         </div>
     </div>
 </section>
 
-
-<!-- Video section -->
-<!-- @foreach($value2 as $item2)
-<section id="video" class="parallax-section" style="background: url('{{'../storage/videosection/'.$item2->photo}}') 20% 0 repeat-y fixed;">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-                <div class="col-md-offset-2 col-md-8 col-sm-12">
-                    <a class="popup-youtube" href="{{$item2->videolink}}"><i class="fa fa-play"></i></a>
-                    <h2 class="wow fadeInUp" data-wow-delay="0.5s">Watch the video</h2>
-                </div>
-
-        </div>
-    </div>
-</section>
-@endforeach -->
 
 <!-- Menu section -->
 <section id="menu" class="parallax-section">
