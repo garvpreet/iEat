@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2018 at 06:26 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Aug 02, 2018 at 08:57 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `foodorderversion1`
+-- Database: `ieat`
 --
 
 -- --------------------------------------------------------
@@ -113,7 +115,10 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `number` int(10) NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -125,8 +130,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tamim', 'sk.tamim56@gmail.com', '$2y$10$GPRwaPXb4FfIANVCd5tYb.C2v/FgqYcUXJZINoG6z5rpPmq/3.bwG', 'v7TWOBC5Oy4wxkhmTREhMcj3MZM3ojCUSnlgsveoX3KgZjucvy6izd0HUuXM', '2018-05-28 10:36:56', '2018-05-28 10:36:56');
+INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `number`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'tamim', NULL, '', 0, 'sk.tamim56@gmail.com', '$2y$10$GPRwaPXb4FfIANVCd5tYb.C2v/FgqYcUXJZINoG6z5rpPmq/3.bwG', 'v7TWOBC5Oy4wxkhmTREhMcj3MZM3ojCUSnlgsveoX3KgZjucvy6izd0HUuXM', '2018-05-28 10:36:56', '2018-05-28 10:36:56');
 
 -- --------------------------------------------------------
 
@@ -200,26 +205,32 @@ ALTER TABLE `videosections`
 --
 ALTER TABLE `aboutsections`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `videosections`
 --
 ALTER TABLE `videosections`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
