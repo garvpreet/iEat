@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2018 at 08:54 PM
+-- Generation Time: Aug 02, 2018 at 08:57 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -118,7 +118,7 @@ CREATE TABLE `users` (
   `fname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lname` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `number` int(30) NOT NULL,
+  `number` int(10) NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -131,11 +131,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `number`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tamim', NULL, '', 0, 'sk.tamim56@gmail.com', '$2y$10$GPRwaPXb4FfIANVCd5tYb.C2v/FgqYcUXJZINoG6z5rpPmq/3.bwG', 'v7TWOBC5Oy4wxkhmTREhMcj3MZM3ojCUSnlgsveoX3KgZjucvy6izd0HUuXM', '2018-05-28 10:36:56', '2018-05-28 10:36:56'),
-(2, '123', '123', '123', 123, '123@123.com', '$2y$10$T07kfKF7fEjGE9I36lD.6efG83NTPm2kXK3T2ypgFGqSKDNfDQ86C', NULL, '2018-08-02 13:59:04', '2018-08-02 13:59:04'),
-(3, 'uuuuuuuuuuuuu', 'yyyyyyyyy', 'hhh', 67888, 'byn@bb.com', '$2y$10$pShaCOdQD0F1z3zDyTrRCecx4616lLLZzbCZ2EC.TswRYs2SZQWBa', NULL, '2018-08-02 15:30:01', '2018-08-02 15:30:01'),
-(4, 'Munesh', 'Jattan', 'aaaaaa', 123456, 'munesh@gmail.com', '$2y$10$X4s1v2bCQ9FyRl.uXYKyl.ajBAgXJpdX/zZx8wmSulUtYIt56KaFe', NULL, '2018-08-02 20:56:16', '2018-08-02 20:56:16'),
-(5, 'Garvpreet', 'Singh', 'Montreal', 123456, 'garv@gmail.com', '$2y$10$H/ibDWsUyzG4cREBYh0py.zmDXGQ1EQBi/iv1xbnsTV7ms8KYdXWu', NULL, '2018-08-02 20:57:47', '2018-08-02 20:57:47');
+(1, 'tamim', NULL, '', 0, 'sk.tamim56@gmail.com', '$2y$10$GPRwaPXb4FfIANVCd5tYb.C2v/FgqYcUXJZINoG6z5rpPmq/3.bwG', 'v7TWOBC5Oy4wxkhmTREhMcj3MZM3ojCUSnlgsveoX3KgZjucvy6izd0HUuXM', '2018-05-28 10:36:56', '2018-05-28 10:36:56');
 
 -- --------------------------------------------------------
 
@@ -226,7 +222,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `videosections`
