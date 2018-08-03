@@ -5,25 +5,63 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Welcome to IEat: It is free to Register anytime</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register1') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                       
+                         <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+                            <label for="fname" class="col-md-4 control-label">First Name</label>
+                           <div class="col-md-6">
+                                <input id="firstname" type="text" class="form-control" name="firstname" value="{{ old('firstname') }}" required autofocus>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firstname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstname') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
+                       <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+                            <label for="lastname" class="col-md-4 control-label">Last Name</label>
+                           <div class="col-md-6">
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
+
+                                @if ($errors->has('lastname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+                           <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
+                            <label for="number" class="col-md-4 control-label">Phone Number</label>
+                           <div class="col-md-6">
+                                <input id="number" type="tel" class="form-control" name="number" value="{{ old('number') }}" required autofocus>
+
+                                @if ($errors->has('number'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -61,6 +99,21 @@
                             </div>
                         </div>
 
+                         <div class="form-group">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                    <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6">
+                                            <button class="btn btn-success" type="submit" onclick="">Sign-Up</button>
+                                    </div>
+                        
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 {{--<button type="submit" class="btn btn-primary">--}}
