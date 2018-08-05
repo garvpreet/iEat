@@ -77,21 +77,19 @@
                 <li><a href="#top" class="smoothScroll">Home</a></li>
                 <li><a href="#feature" class="smoothScroll">Features</a></li>
                 <li><a href="#about" class="smoothScroll">About</a></li>
-                <li><a href="#menu" class="smoothScroll">Menu</a></li>
+                <li class="menu"><a href="#menu" class="smoothScroll">Menu</a></li>
                 <!-- <li><a href="#gallery" class="smoothScroll">Gallery</a></li> -->
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
                 <li><a href="#team" class="smoothScroll">Team</a></li>
-
+                <li><a href="#" data-toggle="modal" data-target="#loginmodal" class="smoothScroll">Login</a></li>
+                <li><a href="{{route('register')}}" class="smoothScroll">Sign Up</a></li>
                 @if(Illuminate\Support\Facades\Auth::check())
                     <li><a href="#">
                         {{'('}}
                         {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
                         {{')'}}
                     </a></li>
-                @else 
-                    <li><a href='{!! url('/home'); !!}'>login</a></li>
-                @endif
-                
+               @endif
             </ul>
         </div>
 
@@ -561,7 +559,38 @@ foreach ($foodOffer as $food) {
         </div>
     </div>
 </section>
+    
+<div class="modal fade " id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="contact-form-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                <h5 class="modal-title" style="display:inline-block!important">Login view</h5>
+                
+            </div>
+            <div class="modal-body">
+                <div class="contact-form">
+                    <div class="alert alert-danger alt-login" style="display:none">
+                        <label>Invalid Information </label>
+                    </div>
+                        <div class="form-group">
+                            <input  type="email" name="usermail" id="usermail" class="form-control " placeholder="Input Email" autofocus  required>
+                        </div>
+                        <div class="form-group">
+                            <input  type="password"  name="password" id="password" class="form-control " placeholder="Input Password"  required>
+                        </div>
+                        <p class="text-left">Don't Have Account yet ? <a href="{{url('register')}}">SIGN UP</a> </p>
+                        <button type="button"  class="btn btn-primary" onclick="doLogin();">SUBMIT</button>
+                </div>
 
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
 <!-- javscript js -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -585,6 +614,43 @@ foreach ($foodOffer as $food) {
 
 <!-- javscript js from Food truck -->
 <script src="script.js"></script>
-
+<script>
+    var login_path = "{{route('auth.login')}}";
+    function doLogin(){
+        var email = $("#usermail").val();
+        var pass = $("#password").val();
+        $(".form-group").removeClass('has-error');
+        if(email==''){
+            $("#usermail").parent().addClass('has-error');
+            return false;
+        }
+        if(pass==''){
+            $("#password").parent().addClass('has-error');
+            return false;
+        }
+        
+        $.ajax({
+            url:login_path,
+            type:'post',
+            data:{email:email,password:pass},
+            dataType:'json',
+            success:function(resp){
+                
+                if(resp)
+                    {
+                        
+                        $("#loginmodal").modal('hide');
+                        $(".form-group>input").val(null);
+                       
+                    }
+                else
+                    {
+                       $(".alt-login").fadeIn().delay('1000').fadeOut();
+                        
+                    }
+            }
+        });
+    }
+</script>
 </body>
 </html>
