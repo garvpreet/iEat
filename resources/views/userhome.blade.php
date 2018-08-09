@@ -77,10 +77,19 @@
                 <li><a href="#top" class="smoothScroll">Home</a></li>
                 <li><a href="#feature" class="smoothScroll">Features</a></li>
                 <li><a href="#about" class="smoothScroll">About</a></li>
-                <li><a href="#menu" class="smoothScroll">Menu</a></li>
+                <li class="menu"><a href="#menu" class="smoothScroll">Menu</a></li>
                 <!-- <li><a href="#gallery" class="smoothScroll">Gallery</a></li> -->
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
                 <li><a href="#team" class="smoothScroll">Team</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#loginmodal" class="smoothScroll">Login</a></li>
+                <li><a href="{{route('register')}}" class="smoothScroll">Sign Up</a></li>
+                @if(Illuminate\Support\Facades\Auth::check())
+                    <li><a href="#">
+                        {{'('}}
+                        {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                        {{')'}}
+                    </a></li>
+               @endif
             </ul>
         </div>
 
@@ -158,55 +167,14 @@
 
             <div class="wow fadeInUp col-md-5 col-sm-7" data-wow-delay="0.5s">
 
-                <!-- <div class="flexslider">
-                    <ul class="slides">
-                        @foreach($value1 as $item1)
-                        <li>
-                            <img src="{{'/storage/aboutsection/'.$item1->photo}}" class="img-responsive" alt="Flexslider" height="200" width="300">
-                        </li>
-                        @endforeach
-                        {{--<li>--}}
-                            {{--<img src="images/slide-img2.jpg" alt="Flexslider">--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<img src="images/slide-img3.jpg" alt="Flexslider">--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<img src="images/b5.jpeg" alt="Flexslider">--}}
-                        {{--</li>--}}
-
-                    </ul>
-                </div> -->
-
                 <p>iEat Restaurent serves mouth-watering freshly prepared pizzas. We wont give you a chance of disappointment!!</p>
             </div>
 
-            <!-- <div class="wow fadeInUp col-md-4 col-sm-12" data-wow-delay="0.9s">
-                <h2>Fine Dining</h2>
-                <p>Daffodil Green Garden Restaurent is one of the beautiful restaurent in Dhaka</p>
-                <p>Our speical food is Beef Vindaloo. Butter Chicken. Carrot Halwa. Chaat Papri. Cham-Cham.</p>
-            </div> -->
 
         </div>
     </div>
 </section>
 
-
-<!-- Video section -->
-<!-- @foreach($value2 as $item2)
-<section id="video" class="parallax-section" style="background: url('{{'../storage/videosection/'.$item2->photo}}') 20% 0 repeat-y fixed;">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-                <div class="col-md-offset-2 col-md-8 col-sm-12">
-                    <a class="popup-youtube" href="{{$item2->videolink}}"><i class="fa fa-play"></i></a>
-                    <h2 class="wow fadeInUp" data-wow-delay="0.5s">Watch the video</h2>
-                </div>
-
-        </div>
-    </div>
-</section>
-@endforeach -->
 
 <!-- Menu section -->
 <section id="menu" class="parallax-section">
@@ -591,7 +559,38 @@ foreach ($foodOffer as $food) {
         </div>
     </div>
 </section>
+    
+<div class="modal fade " id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="contact-form-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                <h5 class="modal-title" style="display:inline-block!important">Login view</h5>
+                
+            </div>
+            <div class="modal-body">
+                <div class="contact-form">
+                    <div class="alert alert-danger alt-login" style="display:none">
+                        <label>Invalid Information </label>
+                    </div>
+                        <div class="form-group">
+                            <input  type="email" name="usermail" id="usermail" class="form-control " placeholder="Input Email" autofocus  required>
+                        </div>
+                        <div class="form-group">
+                            <input  type="password"  name="password" id="password" class="form-control " placeholder="Input Password"  required>
+                        </div>
+                        <p class="text-left">Don't Have Account yet ? <a href="{{url('register')}}">SIGN UP</a> </p>
+                        <button type="button"  class="btn btn-primary" onclick="doLogin();">SUBMIT</button>
+                </div>
 
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
 <!-- javscript js -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -615,6 +614,43 @@ foreach ($foodOffer as $food) {
 
 <!-- javscript js from Food truck -->
 <script src="script.js"></script>
-
+<script>
+    var login_path = "{{route('auth.login')}}";
+    function doLogin(){
+        var email = $("#usermail").val();
+        var pass = $("#password").val();
+        $(".form-group").removeClass('has-error');
+        if(email==''){
+            $("#usermail").parent().addClass('has-error');
+            return false;
+        }
+        if(pass==''){
+            $("#password").parent().addClass('has-error');
+            return false;
+        }
+        
+        $.ajax({
+            url:login_path,
+            type:'post',
+            data:{email:email,password:pass},
+            dataType:'json',
+            success:function(resp){
+                
+                if(resp)
+                    {
+                        
+                        $("#loginmodal").modal('hide');
+                        $(".form-group>input").val(null);
+                       
+                    }
+                else
+                    {
+                       $(".alt-login").fadeIn().delay('1000').fadeOut();
+                        
+                    }
+            }
+        });
+    }
+</script>
 </body>
 </html>

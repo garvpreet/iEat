@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -48,7 +51,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'firstname' => 'required|max:191',
+            'lastname' => 'required|max:191',
+            'address' => 'required|max:255',
+            'number' => 'required|integer',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -60,12 +66,29 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $checked = $this->validator($request->all());
+
+        if($checked->fails()){
+            return Redirect::back()->withInput()->withErrors($checked);
+        } 
+        
+        $userdata = array(
+                'fname' => $request->firstname,
+                'lname' => $request->lastname,
+                'address' => $request->address,
+                'email' => $request->email,
+                'number'=>$request->number,
+                'password'=>bcrypt($request->password)
+            );
+        try {
+            $result =  User::create($userdata);
+            return redirect('/');
+        } catch (\Exception $e) {
+            Log::info($e->getmessage());
+        }
+        
+       
     }
 }
