@@ -170,7 +170,8 @@ if (isset($_POST['ordersubmit'])) {
                                 $query = mysqli_query($con, $sql);
                                 $totalprice = 0;
                                 $totalqunty = 0;
-                                $discount =0;
+                                $discount = 0;
+                                $taxes=0;
                                 if (!empty($query)) {
                                     while ($row = mysqli_fetch_array($query)) {
                                         $quantity = $_SESSION['cart'][$row['id']]['quantity'];
@@ -189,7 +190,8 @@ if (isset($_POST['ordersubmit'])) {
                                             </td>
                                             <td class="cart-image">
                                                 <a class="entry-thumbnail" href="detail.html">
-                                                    <img class="img-circle" src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
+                                                    <img class="img-circle"
+                                                         src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
                                                          alt="" width="114" height="146">
                                                 </a>
                                             </td>
@@ -320,14 +322,12 @@ $num=mysqli_num_rows($rt);
                         </tr>
                         <tr>
                             <th>
-
-                                <div class="cart-product-sub-total">
+                                <div class="cart-grand-total">
                                     <?php
                                     if ($totalprice > 100) {
-                                        $totalprice = ($totalprice *.80);
-                                        $discount = ($totalprice *.20);
+                                        $totalprice = ($totalprice * .80);
+                                        $discount = ($totalprice * .20);
                                     }
-
                                     ?>
                                     Discount<span
                                             class="inner-left">&dollar; <?php echo $_SESSION['discount'] = "$discount"; ?></span>
@@ -336,10 +336,23 @@ $num=mysqli_num_rows($rt);
                         </tr>
                         <tr>
                             <th>
-
                                 <div class="cart-grand-total">
+                                    <?php
+                                    $taxes = ($totalprice * .15);
+                                    ?>
+                                    Taxes<span
+                                            class="inner-left">&dollar; <?php echo $_SESSION['taxes'] = "$taxes"; ?></span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="cart-grand-total">
+                                    <?php
+                                    $totalprice = ($totalprice + $taxes);
+                                    ?>
                                     Final Price<span
-                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = round($totalprice,3); ?></span>
+                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = round($totalprice, 3); ?></span>
                                 </div>
                             </th>
                         </tr>
@@ -354,11 +367,12 @@ $num=mysqli_num_rows($rt);
                                         <button type="submit" name="ordersubmit" class="btn btn-primary">PROCCED TO
                                             CHECKOUT
                                         </button>
-                                    <?php } else {?>
-                                    <button type="submit" name="ordersubmit" class="btn btn-primary" disabled>PROCCED TO
-                                        CHECKOUT
-                                    </button>
-                                    <span>Kitchen is closed now. Please order later.</span>
+                                    <?php } else { ?>
+                                        <button type="submit" name="ordersubmit" class="btn btn-primary" disabled>
+                                            PROCCED TO
+                                            CHECKOUT
+                                        </button>
+                                        <span>Kitchen is closed now. Please order later.</span>
                                     <?php } ?>
                                 </div>
                             </td>
