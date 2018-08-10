@@ -92,27 +92,8 @@ if(isset($_POST['submit']))
     <!-- ============================================== NAVBAR : END ============================================== -->
 
 </header>
-
 <!-- ============================================== HEADER : END ============================================== -->
-<div class="breadcrumb">
-    <div class="container">
-        <div class="breadcrumb-inner">
-            <?php
-            $ret=mysqli_query($con,"select category.categoryName as catname,subCategory.subcategory as subcatname,products.productName as pname from products join category on category.id=products.category join subcategory on subcategory.id=products.subCategory where products.id='$pid'");
-            while ($rw=mysqli_fetch_array($ret)) {
-                ?>
 
-
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.php">Home</a></li>
-                    <li><?php echo htmlentities($rw['catname']);?></a></li>
-                    <li><?php echo htmlentities($rw['subcatname']);?></li>
-                    <li class='active'><?php echo htmlentities($rw['pname']);?></li>
-                </ul>
-            <?php }?>
-        </div><!-- /.breadcrumb-inner -->
-    </div><!-- /.container -->
-</div><!-- /.breadcrumb -->
 <div class="body-content outer-top-xs">
     <div class='container'>
         <div class='row single-product outer-bottom-sm '>
@@ -143,61 +124,6 @@ if(isset($_POST['submit']))
                         </div>
                     </div>
                     <!-- ============================================== CATEGORY : END ============================================== -->					<!-- ============================================== HOT DEALS ============================================== -->
-                    <div class="sidebar-widget hot-deals wow fadeInUp">
-                        <h3 class="section-title">hot deals</h3>
-                        <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
-
-                            <?php
-                            $ret=mysqli_query($con,"select * from products order by rand() limit 4 ");
-                            while ($rws=mysqli_fetch_array($ret)) {
-                                ?>
-
-
-                                <div class="item">
-                                    <div class="products">
-                                        <div class="hot-deal-wrapper">
-                                            <div class="image">
-                                                <img src="admin/productimages/<?php echo htmlentities($rws['productName']);?>/<?php echo htmlentities($rws['productImage1']);?>"  width="200" height="334" alt="">
-                                            </div>
-
-                                        </div><!-- /.hot-deal-wrapper -->
-
-                                        <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($rws['id']);?>"><?php echo htmlentities($rws['productName']);?></a></h3>
-                                            <div class="rating rateit-small"></div>
-
-                                            <div class="product-price">
-								<span class="price">
-									$. <?php echo htmlentities($rws['productPrice']);?>.00
-								</span>
-
-                                                <span class="price-before-discount">$.<?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
-
-                                            </div><!-- /.product-price -->
-
-                                        </div><!-- /.product-info -->
-
-                                        <div class="cart clearfix animate-effect">
-                                            <div class="action">
-
-                                                <div class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <a href="product-details.php?page=product&action=add&id=<?php echo $rws['id']; ?>" class="lnk btn btn-primary">Add to cart</a>
-
-
-                                                </div>
-
-                                            </div><!-- /.action -->
-                                        </div><!-- /.cart -->
-                                    </div>
-                                </div>
-                            <?php } ?>
-
-
-                        </div><!-- /.sidebar-widget -->
-                    </div>
 
                     <!-- ============================================== COLOR: END ============================================== -->
                 </div>
@@ -289,18 +215,6 @@ if(isset($_POST['submit']))
                             $num=mysqli_num_rows($rt);
                             {
                                 ?>
-                                <div class="rating-reviews m-t-20">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="rating rateit-small"></div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="reviews">
-                                                <a href="#" class="lnk">(<?php echo htmlentities($num);?> Reviews)</a>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.row -->
-                                </div><!-- /.rating-reviews -->
                             <?php } ?>
                             <div class="stock-container info-container m-t-10">
                                 <div class="row">
@@ -362,25 +276,12 @@ if(isset($_POST['submit']))
                                 <div class="row">
 
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="price-box">
-                                            <span class="price">Rs. <?php echo htmlentities($row['productPrice']);?></span>
-                                            <span class="price-strike">Rs.<?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
+                                            <span class="price">&dollar; <?php echo htmlentities($row['productPrice']);?></span>
                                         </div>
                                     </div>
 
-
-
-
-                                    <div class="col-sm-6">
-                                        <div class="favorite-button m-t-10">
-                                            <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="product-details.php?pid=<?php echo htmlentities($row['id'])?>&&action=wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-
-                                            </a>
-                                        </div>
-                                    </div>
 
                                 </div><!-- /.row -->
                             </div><!-- /.price-container -->
