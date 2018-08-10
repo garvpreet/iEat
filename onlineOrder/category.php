@@ -232,7 +232,7 @@ while($row=mysqli_fetch_array($sql))
                                                                         <!--<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
                                                                             <i class="fa fa-shopping-cart"></i>
                                                                         </button>-->
-                                                                        <a href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
+                                                                        <a hidden href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
                                                                             <button class="btn btn-primary"
                                                                                     type="button">Add to cart
                                                                             </button>
