@@ -211,6 +211,9 @@ if(!empty($_SESSION['cart'])){
 							if($_SESSION['mashroom']=="" && $_SESSION['tomato']=="" && $_SESSION['olive']=="" && $_SESSION['jalapeno']==""){
 								$topping_list = "";
 							}
+							if($row['category']!=3){
+								$topping_list = "";
+							}
 							$_SESSION['topping_list'] = $topping_list;
 
 						?>
