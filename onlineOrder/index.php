@@ -219,7 +219,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div>
 
                                                 </div>
-                                                <div class="action"><a
+                                                <div class="action" hidden><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
                                                             class="lnk btn btn-primary">Add to Cart</a></div>
                                             </div>
