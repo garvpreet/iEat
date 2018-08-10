@@ -120,10 +120,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <i class="icon fa fa-dollar"></i>
                                             </div>
                                             <div class="col-xs-10">
-                                                <h4 class="info-box-heading green">money back</h4>
+                                                <h4 class="info-box-heading green">POCKET FRIENDLY</h4>
                                             </div>
                                         </div>
-                                        <h6 class="text">30 Day Money Back Guarantee.</h6>
+                                        <h6 class="text">Competitive Prices in Montreal!</h6>
                                     </div>
                                 </div><!-- .col -->
 
@@ -131,13 +131,13 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <div class="info-box">
                                         <div class="row">
                                             <div class="col-xs-2">
-                                                <i class="icon fa fa-truck"></i>
+                                                <i class="icon fa fa-car"></i>
                                             </div>
                                             <div class="col-xs-10">
-                                                <h4 class="info-box-heading orange">free shipping</h4>
+                                                <h4 class="info-box-heading orange">FAST DELIVERY</h4>
                                             </div>
                                         </div>
-                                        <h6 class="text">free ship-on oder over Rs. 600.00</h6>
+                                        <h6 class="text">Pioneer in the Pizza Delivery Industry!</h6>
                                     </div>
                                 </div><!-- .col -->
 
@@ -145,13 +145,13 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <div class="info-box">
                                         <div class="row">
                                             <div class="col-xs-2">
-                                                <i class="icon fa fa-gift"></i>
+                                                <i class="icon fa fa-cutlery"></i>
                                             </div>
                                             <div class="col-xs-10">
-                                                <h4 class="info-box-heading red">Special Sale</h4>
+                                                <h4 class="info-box-heading red">EXOTIC PIZZA MENU</h4>
                                             </div>
                                         </div>
-                                        <h6 class="text">All items-sale up to 20% off </h6>
+                                        <h6 class="text">Delicious, Scrumptious, Fresh Pizzas!</h6>
                                     </div>
                                 </div><!-- .col -->
                             </div><!-- /.row -->
@@ -196,7 +196,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="product-image">
                                                     <div class="image">
                                                         <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            <img class="img-circle" src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                                  data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                                  width="180" height="180" alt=""></a>
                                                     </div>
@@ -219,9 +219,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div>
 
                                                 </div>
-                                                <div class="action" hidden><a
-                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary">Add to Cart</a></div>
+
                                             </div>
 
                                         </div>
@@ -236,7 +234,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
             <!-- ============================================== TABS ============================================== -->
-                       <!-- Garv: Do not delete -->
+
             <!-- ============================================== TABS : END ============================================== -->
         </div>
     </div>

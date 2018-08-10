@@ -5213,3 +5213,24 @@ a {
 .cnt-home .category-product .products .product{
   text-align: center;
 }
+
+footer.footer .links-social{
+  margin: o;
+  padding: 0;
+}
+
+footer.footer .contact-timing, footer.footer .contact-information{
+  padding-top: 15px;
+}
+
+footer.footer .contact-timing .module-body, footer.footer .contact-information .module-body{
+  margin-top: 15px;
+}
+
+footer.footer .contact-information .module-body .media{
+  margin-top: 5px;
+}
+
+footer.footer .contact-information .module-body .media-body p{
+  margin: 7px 0;
+}

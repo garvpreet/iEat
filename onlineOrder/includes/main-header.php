@@ -19,9 +19,7 @@ if (isset($_Get['action'])) {
                 <!-- ============================================================= LOGO ============================================================= -->
                 <div class="logo">
                     <a href="index.php">
-
                         <h2>iEat</h2>
-
                     </a>
                 </div>
             </div>
@@ -33,7 +31,7 @@ if (isset($_Get['action'])) {
                             <input class="search-field" placeholder="Search here..." name="product"
                                    required="required"/>
 
-                            <button class="search-button" type="submit" name="search"></button>
+                            <button class="search-button" type="submit" name="Search"></button>
 
                         </div>
                     </form>
@@ -52,7 +50,7 @@ if (isset($_Get['action'])) {
                                 <div class="total-price-basket">
                                     <span class="lbl">Cart -</span>
                                     <span class="total-price">
-						<span class="sign">&dollar;</span>
+						<span class="sign">&dollar; </span>
 						<span class="value"><?php echo $_SESSION['tp']; ?></span>
 					</span>
                                 </div>

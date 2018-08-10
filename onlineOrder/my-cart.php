@@ -69,7 +69,7 @@ header('location:payment-method.php');
 	    <meta name="keywords" content="MediaCenter, Template, eCommerce">
 	    <meta name="robots" content="all">
 
-	    <title>My Cart</title>
+	    <title>iEat | My Cart</title>
 	    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="assets/css/main.css">
 	    <link rel="stylesheet" href="assets/css/green.css">
@@ -119,16 +119,6 @@ header('location:payment-method.php');
 <?php include('includes/menu-bar.php');?>
 </header>
 <!-- ============================================== HEADER : END ============================================== -->
-<!--<div class="breadcrumb">
-	<div class="container">
-		<div class="breadcrumb-inner">
-			<ul class="list-inline list-unstyled">
-				<li><a href="#">Home</a></li>
-				<li class='active'>Cart</li>
-			</ul>
-		</div>
-	</div>
-</div>-->
 
 <div class="body-content outer-top-xs">
 	<div class="container">
@@ -147,8 +137,7 @@ if(!empty($_SESSION['cart'])){
 					<th class="cart-description item">Image</th>
 					<th class="cart-product-name item">Product Name</th>
 					<th class="cart-qty item">Quantity</th>
-					<th class="cart-sub-total item">Price Per unit</th>
-					<!--<th class="cart-sub-total item">Shipping Charge</th>-->
+					<th class="cart-sub-total item">Price Per unit (incl. tax)</th>
 					<th class="cart-total last-item">Total</th>
 				</tr>
 			</thead><!-- /thead -->
@@ -246,7 +235,6 @@ $num=mysqli_num_rows($rt);
 			              </div>
 		            </td>
 					<td class="cart-product-sub-total"><span class="cart-sub-total-price">&dollar; <?php echo $row['productPrice']; ?>.00</span></td>
-                    <!--<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php /*echo "Rs"." ".$row['shippingCharge']; */?>.00</span></td>-->
 
 					<td class="cart-product-grand-total"><span class="cart-grand-total-price">&dollar; <?php echo ($_SESSION['cart'][$row['id']]['quantity']*$row['productPrice']+$row['shippingCharge']); ?>.00</span></td>
 				</tr>
@@ -291,34 +279,7 @@ while ($rt=mysqli_fetch_array($qry)) {
 </div>
 
 <div class="col-md-4 col-sm-12 estimate-ship-tax">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>
-					<span class="estimate-title">Billing Address</span>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-				<tr>
-					<td>
-						<div class="form-group">
-						<?php $qry=mysqli_query($con,"select * from users where id='".$_SESSION['id']."'");
-while ($rt=mysqli_fetch_array($qry)) {
-	echo htmlentities($rt['billingAddress'])."<br />";
-	echo htmlentities($rt['billingCity'])."<br />";
-	echo htmlentities($rt['billingState']);
-	echo htmlentities($rt['billingPincode']);
-}
 
-						?>
-		
-						</div>
-					
-					</td>
-				</tr>
-		</tbody><!-- /tbody -->
-	</table><!-- /table -->
 </div>
 <div class="col-md-4 col-sm-12 cart-shopping-total">
 	<table class="table table-bordered">
