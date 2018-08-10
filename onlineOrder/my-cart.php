@@ -196,13 +196,19 @@ if(!empty($_SESSION['cart'])){
 					<td class="cart-product-name-info">
 						<?php 
 							$topping_list = ' (with ';
+
 							if($_SESSION['mashroom']=='mashroom')
-							$topping_list = $topping_list.$_SESSION['mashroom']." ";
+								$topping_list = $topping_list.$_SESSION['mashroom']." ";
 							if($_SESSION['tomato']=='tomato')
-							$topping_list = $topping_list.$_SESSION['tomato']." ";
+								$topping_list = $topping_list.$_SESSION['tomato']." ";
+							if($_SESSION['olive']=='olive')
+								$topping_list = $topping_list.$_SESSION['olive']." ";
+							if($_SESSION['jalapeno']=='jalapeno')
+								$topping_list = $topping_list.$_SESSION['jalapeno']." ";
+
 							$topping_list .= ')';
 
-							if($_SESSION['mashroom']=="" && $_SESSION['tomato']==""){
+							if($_SESSION['mashroom']=="" && $_SESSION['tomato']=="" && $_SESSION['olive']=="" && $_SESSION['jalapeno']==""){
 								$topping_list = "";
 							}
 						?>

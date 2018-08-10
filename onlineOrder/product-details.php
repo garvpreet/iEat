@@ -138,7 +138,7 @@ if(isset($_POST['submit']))
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================== CATEGORY : END ============================================== -->					<!-- ============================================== HOT DEALS ============================================== -->
+                    <!-- ============================================== CATEGORY : END ============================================== -->                   <!-- ============================================== HOT DEALS ============================================== -->
                     <div class="sidebar-widget hot-deals wow fadeInUp">
                         <h3 class="section-title">hot deals</h3>
                         <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
@@ -163,9 +163,9 @@ if(isset($_POST['submit']))
                                             <div class="rating rateit-small"></div>
 
                                             <div class="product-price">
-								<span class="price">
-									Rs. <?php echo htmlentities($rws['productPrice']);?>.00
-								</span>
+                                <span class="price">
+                                    Rs. <?php echo htmlentities($rws['productPrice']);?>.00
+                                </span>
 
                                                 <span class="price-before-discount">Rs.<?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
 
@@ -340,7 +340,7 @@ if(isset($_POST['submit']))
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="stock-box">
-											<span class="value"><?php if($row['shippingCharge']==0)
+                                            <span class="value"><?php if($row['shippingCharge']==0)
                                                 {
                                                     echo "Free";
                                                 }
@@ -369,8 +369,8 @@ if(isset($_POST['submit']))
 <label>
     <input id="t1" type="checkbox" <?php if($_SESSION['mashroom']=='mashroom') echo "checked";?> onclick="check1()" value="Mashroom">Mashroom<br>
     <input id="t2" type="checkbox" <?php if($_SESSION['tomato']=='tomato') echo "checked";?> onclick="check2()" value="Tomato">Tomato<br>
-    <input hidden id="t3" type="checkbox" onclick="check3()" value="Olive">Olive<br>
-    <input hidden id="t4" type="checkbox" onclick="check4()" value="Jalapeno">Jalapeno<br>
+    <input id="t3" type="checkbox" <?php if($_SESSION['olive']=='olive') echo "checked";?> onclick="check3()" value="olive">Olive<br>
+    <input id="t4" type="checkbox" <?php if($_SESSION['jalapeno']=='jalapeno') echo "checked";?> onclick="check4()" value="jalapeno">Jalapeno<br>
 </label>
 
 
@@ -423,7 +423,7 @@ if(isset($_POST['submit']))
         $("#t3").click(function(){
             var isChecked3 = $('#t3').is(':checked');
             if(isChecked3){
-                $.post("",
+                $.post("addTopping.php",
                 {
                     olive: "add_olive",
                 },
@@ -431,7 +431,7 @@ if(isset($_POST['submit']))
                     //alert("Data: " + data + "\nStatus: " + status);
                 });         
             }else{
-                $.post("storeTopping.php",
+                $.post("addTopping.php",
                 {
                     olive: "remove_olive",  
                 },
@@ -444,7 +444,7 @@ if(isset($_POST['submit']))
         $("#t4").click(function(){
             var isChecked4 = $('#t4').is(':checked');
             if(isChecked4){
-                $.post("",
+                $.post("addTopping.php",
                 {
                     jalapeno: "add_jalapeno",
                 },
@@ -452,7 +452,7 @@ if(isset($_POST['submit']))
                     //alert("Data: " + data + "\nStatus: " + status);
                 });         
             }else{
-                $.post("storeTopping.php",
+                $.post("addTopping.php",
                 {
                     jalapeno: "remove_jalapeno",  
                 },
@@ -594,7 +594,7 @@ if(isset($_POST['submit']))
                                                     <div class="text"><b>Quality :</b>  <?php echo htmlentities($rvw['quality']);?> Star</div>
                                                     <div class="text"><b>Price :</b>  <?php echo htmlentities($rvw['price']);?> Star</div>
                                                     <div class="text"><b>value :</b>  <?php echo htmlentities($rvw['value']);?> Star</div>
-                                                    <div class="author m-t-15"><i class="fa fa-pencil-square-o"></i> <span class="name"><?php echo htmlentities($rvw['name']);?></span></div>													</div>
+                                                    <div class="author m-t-15"><i class="fa fa-pencil-square-o"></i> <span class="name"><?php echo htmlentities($rvw['name']);?></span></div>                                                   </div>
 
                                             </div>
                                             <?php } ?><!-- /.reviews -->
@@ -724,8 +724,8 @@ if(isset($_POST['submit']))
                                 <div class="description"></div>
 
                                 <div class="product-price">
-				<span class="price">
-					Rs.<?php echo htmlentities($rw['productPrice']);?>			</span>
+                <span class="price">
+                    Rs.<?php echo htmlentities($rw['productPrice']);?>          </span>
                                     <span class="price-before-discount">Rs.
                                         <?php echo htmlentities($rw['productPriceBeforeDiscount']);?></span>
 

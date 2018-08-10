@@ -17,4 +17,20 @@ if(isset($_POST['tomato']) && $_POST['tomato']=='add_tomato'){
 	$_SESSION['tomato'] = '';
 }
 
+if(isset($_POST['olive']) && $_POST['olive']=='add_olive'){
+	$_SESSION ['olive']= 'olive';
+	echo $_SESSION['olive']." added as topping";
+}elseif(isset($_POST['olive']) && $_POST['olive']=='remove_olive'){
+	echo "Olive removed from toppings";
+	$_SESSION['olive'] = '';
+}
+
+if(isset($_POST['jalapeno']) && $_POST['jalapeno']=='add_jalapeno'){
+	$_SESSION ['jalapeno']= 'jalapeno';
+	echo $_SESSION['jalapeno']." added as topping";
+}elseif(isset($_POST['jalapeno']) && $_POST['jalapeno']=='remove_jalapeno'){
+	echo "Jalapeno removed from toppings";
+	$_SESSION['jalapeno'] = '';
+}
+
 ?>
