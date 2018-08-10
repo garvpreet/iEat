@@ -163,12 +163,11 @@ while($row=mysqli_fetch_array($sql))
             <div class='col-md-9'>
                 <!-- ========================================== SECTION – HERO ========================================= -->
 
-                <div id="category" class="category-carousel hidden-xs">
+                <div id="category">
                     <div class="item">
                        <!-- <div class="image">
                             <img src="assets/images/banners/cat-banner-1.jpg" alt="" class="img-responsive">
                         </div>-->
-                        <div class="container-fluid">
                             <div class="caption vertical-top text-left">
                             <!--    <div class="big-text">
                                     <br/>
@@ -178,12 +177,11 @@ while($row=mysqli_fetch_array($sql))
                                 while ($row = mysqli_fetch_array($sql)) {
                                     ?>
 
-                                    <div class="excerpt hidden-sm hidden-md">
-                                        <?php echo htmlentities($row['categoryName']); ?>
+                                    <div class="excerpt">
+                                     <h1>  <?php echo htmlentities($row['categoryName']); ?></h1>
                                     </div>
                                 <?php } ?>
 
-                            </div>
                         </div>
                     </div>
                 </div>
