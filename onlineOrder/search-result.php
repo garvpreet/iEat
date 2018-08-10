@@ -170,7 +170,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><img
-                                                                            src="assets/images/blank.gif"
+                                                                            src="assets/images/blank.gif" class="img-circle"
                                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                                             alt="" width="200" height="300"></a>
                                                             </div><!-- /.image -->
