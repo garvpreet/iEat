@@ -101,7 +101,7 @@ if (isset($_POST['login'])) {
     <script type="text/javascript">
         function valid() {
             if (document.register.password.value != document.register.confirmpassword.value) {
-                alert("Password and Confirm Password Field do not match  !!");
+                alert("Password and Confirm Password fields do not match  !!");
                 document.register.confirmpassword.focus();
                 return false;
             }
@@ -144,16 +144,6 @@ if (isset($_POST['login'])) {
 </header>
 
 <!-- ============================================== HEADER : END ============================================== -->
-<!--<div class="breadcrumb">
-    <div class="container">
-        <div class="breadcrumb-inner">
-            <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
-                <li class='active'>Authentication</li>
-            </ul>
-        </div>
-    </div>
-</div>-->
 
 <div class="body-content outer-top-bd">
     <div class="container">
@@ -235,18 +225,6 @@ echo htmlentities($_SESSION['errmsg'] = "");
                                 id="submit">Sign Up
                         </button>
                     </form>
-                    <!--<span class="checkout-subtitle outer-top-xs">Sign Up Today And You'll Be Able To :  </span>
-                    <div class="checkbox">
-                        <label class="checkbox">
-                            Speed your way through the checkout.
-                        </label>
-                        <label class="checkbox">
-                            Track your orders easily.
-                        </label>
-                        <label class="checkbox">
-                            Keep a record of all your purchases.
-                        </label>
-                    </div>-->
                 </div>
                 <!-- create a new account -->            </div><!-- /.row -->
         </div>
@@ -269,7 +247,6 @@ echo htmlentities($_SESSION['errmsg'] = "");
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 
-<!-- For demo purposes – can be removed on production -->
 
 <script src="switchstylesheet/switchstylesheet.js"></script>
 
@@ -286,7 +263,6 @@ echo htmlentities($_SESSION['errmsg'] = "");
         $('.show-theme-options').delay(2000).trigger('click');
     });
 </script>
-<!-- For demo purposes – can be removed on production : End -->
 
 
 </body>

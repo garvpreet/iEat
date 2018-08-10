@@ -81,7 +81,7 @@ if (isset($_POST['change'])) {
     <script type="text/javascript">
         function valid() {
             if (document.register.password.value != document.register.confirmpassword.value) {
-                alert("Password and Confirm Password Field do not match  !!");
+                alert("Password and Confirm Password fields do not match  !!");
                 document.register.confirmpassword.focus();
                 return false;
             }
@@ -106,16 +106,7 @@ if (isset($_POST['change'])) {
 </header>
 
 <!-- ============================================== HEADER : END ============================================== -->
-<div class="breadcrumb">
-    <div class="container">
-        <div class="breadcrumb-inner">
-            <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
-                <li class='active'>Forgot Password</li>
-            </ul>
-        </div><!-- /.breadcrumb-inner -->
-    </div><!-- /.container -->
-</div><!-- /.breadcrumb -->
+
 
 <div class="body-content outer-top-bd">
     <div class="container">
@@ -185,7 +176,6 @@ echo htmlentities($_SESSION['errmsg'] = "");
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 
-<!-- For demo purposes – can be removed on production -->
 
 <script src="switchstylesheet/switchstylesheet.js"></script>
 
@@ -202,7 +192,6 @@ echo htmlentities($_SESSION['errmsg'] = "");
         $('.show-theme-options').delay(2000).trigger('click');
     });
 </script>
-<!-- For demo purposes – can be removed on production : End -->
 
 
 </body>

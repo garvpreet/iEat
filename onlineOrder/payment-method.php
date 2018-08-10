@@ -27,7 +27,7 @@ else{
 	    <meta name="keywords" content="MediaCenter, Template, eCommerce">
 	    <meta name="robots" content="all">
 
-	    <title>Shopping Portal | Payment Method</title>
+	    <title>iEat | Payment Method</title>
 	    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="assets/css/main.css">
 	    <link rel="stylesheet" href="assets/css/green.css">
@@ -56,16 +56,7 @@ else{
 <?php include('includes/main-header.php');?>
 <?php include('includes/menu-bar.php');?>
 </header>
-<div class="breadcrumb">
-	<div class="container">
-		<div class="breadcrumb-inner">
-			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
-				<li class='active'>Payment Method</li>
-			</ul>
-		</div><!-- /.breadcrumb-inner -->
-	</div><!-- /.container -->
-</div><!-- /.breadcrumb -->
+
 
 <div class="body-content outer-top-bd">
 	<div class="container">
@@ -92,10 +83,10 @@ else{
 		<!-- panel-body  -->
 	    <div class="panel-body">
 	    <form name="payment" method="post">
-	    <input type="radio" name="paymethod" value="COD" checked="checked"> COD
-	     <input type="radio" name="paymethod" value="Internet Banking"> Internet Banking
-	     <input type="radio" name="paymethod" value="Debit / Credit card"> Debit / Credit card <br /><br />
-	     <input type="submit" value="submit" name="submit" class="btn btn-primary">
+	    <input type="radio" name="paymethod" value="COD" checked="checked"> Cash On Delivery
+	     <input type="radio" name="paymethod" value="Internet Banking"> Debit Card
+            <input type="radio" name="paymethod" value="Debit / Credit card"> Credit Card <br /><br />
+	     <input type="submit" value="submit" name="Submit" class="btn btn-primary">
 	    	
 
 	    </form>		
