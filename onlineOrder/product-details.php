@@ -1,5 +1,12 @@
 <?php
 session_start();
+// clear session during page reload
+/*
+$_SESSION ['mashroom']= '';
+$_SESSION ['olive']= '';
+$_SESSION ['jalapeno']= '';
+$_SESSION ['tomato']= '';
+*/
 error_reporting(0);
 include('includes/config.php');
 if(isset($_GET['action']) && $_GET['action']=="add"){
@@ -19,6 +26,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
     }
 }
 $pid=intval($_GET['pid']);
+/*
 if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
     if(strlen($_SESSION['login'])==0)
     {
@@ -30,7 +38,7 @@ if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
         echo "<script>alert('Product aaded in wishlist');</script>";
         header('location:my-wishlist.php');
     }
-}
+} */ 
 if(isset($_POST['submit']))
 {
     $qty=$_POST['quality'];
