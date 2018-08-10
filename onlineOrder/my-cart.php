@@ -314,7 +314,7 @@ $num=mysqli_num_rows($rt);
 
                                 <div class="cart-grand-total">
                                     Grand Total<span
-                                            class="inner-left-md"><?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+                                            class="inner-left-md">&dollar; <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
                                 </div>
                             </th>
                         </tr>
