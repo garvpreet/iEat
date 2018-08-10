@@ -22,7 +22,7 @@ else{
 	    <meta name="keywords" content="MediaCenter, Template, eCommerce">
 	    <meta name="robots" content="all">
 
-	    <title>Order History</title>
+	    <title>iEat | Order History</title>
 	    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="assets/css/main.css">
 	    <link rel="stylesheet" href="assets/css/green.css">
@@ -70,16 +70,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <?php include('includes/menu-bar.php');?>
 </header>
 <!-- ============================================== HEADER : END ============================================== -->
-<div class="breadcrumb">
-	<div class="container">
-		<div class="breadcrumb-inner">
-			<ul class="list-inline list-unstyled">
-				<li><a href="#">Home</a></li>
-				<li class='active'>Shopping Cart</li>
-			</ul>
-		</div><!-- /.breadcrumb-inner -->
-	</div><!-- /.container -->
-</div><!-- /.breadcrumb -->
+
 
 <div class="body-content outer-top-xs">
 	<div class="container">
@@ -92,17 +83,15 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th class="cart-romove item">#</th>
+					<th class="cart-romove item">Order #</th>
 					<th class="cart-description item">Image</th>
 					<th class="cart-product-name item">Product Name</th>
 					<th class="cart-product-name item">Add Ons</th>
 					<th class="cart-qty item">Quantity</th>
 					<th class="cart-sub-total item">Price Per unit</th>
-					<th class="cart-sub-total item">Shipping Charge</th>
 					<th class="cart-total item">Grandtotal</th>
 					<th class="cart-total item">Payment Method</th>
 					<th class="cart-description item">Order Date</th>
-					<th class="cart-total last-item">Action</th>
 				</tr>
 			</thead><!-- /thead -->
 			
@@ -133,14 +122,11 @@ while($row=mysqli_fetch_array($query))
 						<?php echo $qty=$row['qty']; ?>   
 		            </td>
 					<td class="cart-product-sub-total"><?php echo $price=$row['pprice']; ?>  </td>
-					<td class="cart-product-sub-total"><?php echo $shippcharge=$row['shippingcharge']; ?>  </td>
 					<td class="cart-product-grand-total"><?php echo (($qty*$price)+$shippcharge);?></td>
 					<td class="cart-product-sub-total"><?php echo $row['paym']; ?>  </td>
 					<td class="cart-product-sub-total"><?php echo $row['odate']; ?>  </td>
 					
-					<td>
- <a href="javascript:void(0);" onClick="popUpWindow('http://localhost/shopping/track-order.php?oid=<?php echo htmlentities($row['orderid']);?>');" title="Track order">
-					Track</td>
+
 				</tr>
 <?php $cnt=$cnt+1;} ?>
 				

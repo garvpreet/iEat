@@ -187,8 +187,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
                                                             <div class="product-price">
 				<span class="price">
-					Rs. <?php echo htmlentities($row['productPrice']); ?>			</span>
-                                                                <span class="price-before-discount">Rs. <?php echo htmlentities($row['productPriceBeforeDiscount']); ?></span>
+					&dollar; <?php echo htmlentities($row['productPrice']); ?>			</span>
+                                                                <span class="price-before-discount">&dollar; <?php echo htmlentities($row['productPriceBeforeDiscount']); ?></span>
 
                                                             </div><!-- /.product-price -->
 

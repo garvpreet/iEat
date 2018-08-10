@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93033c0e-f6a0-4a12-82ec-05492270da07" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/main-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/main-header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/menu-bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/menu-bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/myaccount-sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/myaccount-sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-account.php" beforeDir="false" afterPath="$PROJECT_DIR$/my-account.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/my-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/order-details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-history.php" beforeDir="false" afterPath="$PROJECT_DIR$/order-history.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-method.php" beforeDir="false" afterPath="$PROJECT_DIR$/payment-method.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pending-orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/pending-orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/product-details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-result.php" beforeDir="false" afterPath="$PROJECT_DIR$/search-result.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sub-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/sub-category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sub-category1.php" beforeDir="false" afterPath="$PROJECT_DIR$/sub-category1.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,63 +33,60 @@
     <session id="1524279790">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="12" />
+          <entry key="php" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="12" />
+          <entry key="PHP" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="28" />
+          <entry key="php" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="28" />
+          <entry key="PHP" value="69" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bill-ship-addresses.php">
+        <entry file="file://$PROJECT_DIR$/my-cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+            <state relative-caret-position="187">
+              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-cart.php">
+        <entry file="file://$PROJECT_DIR$/product-details.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="366" column="8" lean-forward="true" selection-start-line="366" selection-start-column="8" selection-end-line="366" selection-end-column="8" />
+            <state relative-caret-position="28">
+              <caret line="463" column="112" selection-start-line="463" selection-start-column="112" selection-end-line="463" selection-end-column="112" />
               <folding>
-                <element signature="e#14782#14790#1#HTML" expanded="true" />
+                <element signature="e#19358#19366#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/product-details.php">
+        <entry file="file://$PROJECT_DIR$/order-history.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-              <folding>
-                <element signature="e#19737#19745#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="166" column="12" lean-forward="true" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -85,12 +100,16 @@
       <find>grand</find>
       <find>$</find>
       <find>rs</find>
-      <find>rs.</find>
-      <find>price-strike</find>
       <find>reviews</find>
       <find>rating-reviews</find>
       <find>hot-deals</find>
       <find>breadcrumb</find>
+      <find>price-strike</find>
+      <find>favorite-button</find>
+      <find>product-social-link</find>
+      <find>related products</find>
+      <find>review</find>
+      <find>rs.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,6 +120,7 @@
       <list>
         <option value="$PROJECT_DIR$/my-cart.php" />
         <option value="$PROJECT_DIR$/product-details.php" />
+        <option value="$PROJECT_DIR$/order-history.php" />
       </list>
     </option>
   </component>
@@ -130,8 +150,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="23" />
-    <option name="y" value="141" />
+    <option name="x" value="22" />
+    <option name="y" value="140" />
     <option name="width" value="1400" />
     <option name="height" value="820" />
   </component>
@@ -191,18 +211,19 @@
       <option name="presentableId" value="Default" />
       <updated>1533863209922</updated>
       <workItem from="1533863211514" duration="3650000" />
+      <workItem from="1533918888576" duration="1499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3650000" />
+    <option name="totallyTimeSpent" value="5149000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21529563" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15637584" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -235,13 +256,6 @@
     <entry file="file://$PROJECT_DIR$/my-wishlist.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bill-ship-addresses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/check_availability.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -263,23 +277,34 @@
     <entry file="file://$PROJECT_DIR$/includes/config.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/bill-ship-addresses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="366" column="8" lean-forward="true" selection-start-line="366" selection-start-column="8" selection-end-line="366" selection-end-column="8" />
-          <folding>
-            <element signature="e#14782#14790#1#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/product-details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="28">
+          <caret line="463" column="112" selection-start-line="463" selection-start-column="112" selection-end-line="463" selection-end-column="112" />
           <folding>
-            <element signature="e#19737#19745#0#HTML" expanded="true" />
+            <element signature="e#19358#19366#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order-history.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="166" column="12" lean-forward="true" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
         </state>
       </provider>
     </entry>
