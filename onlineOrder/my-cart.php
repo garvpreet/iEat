@@ -38,7 +38,7 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-
+	$toppings = $_SESSION['topping_list'];
 	$quantity=$_POST['quantity'];
 	$pdd=$_SESSION['pid'];
 	$value=array_combine($pdd,$quantity);
@@ -48,7 +48,7 @@ else{
 
 
 
-mysqli_query($con,"insert into orders(userId,productId,quantity) values('".$_SESSION['id']."','$qty','$val34')");
+mysqli_query($con,"insert into orders(userId,productId,quantity,productAddOns) values('".$_SESSION['id']."','$qty','$val34','$toppings')");
 header('location:payment-method.php');
 }
 }
@@ -211,6 +211,8 @@ if(!empty($_SESSION['cart'])){
 							if($_SESSION['mashroom']=="" && $_SESSION['tomato']=="" && $_SESSION['olive']=="" && $_SESSION['jalapeno']==""){
 								$topping_list = "";
 							}
+							$_SESSION['topping_list'] = $topping_list;
+
 						?>
 						<h4 class='cart-product-description'><?php echo $row['productName'].$topping_list;
 
