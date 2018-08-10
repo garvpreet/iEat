@@ -34,18 +34,17 @@ if (isset($_POST['ordersubmit'])) {
     if (strlen($_SESSION['login']) == 0) {
         header('location:login.php');
     } else {
-
         $quantity = $_POST['quantity'];
         $addOn = $_POST['addOn'];
         $pdd = $_SESSION['pid'];
         $value = array_combine($pdd, $quantity);
-
 
         foreach ($value as $qty => $val34) {
             echo "<script>alert('hello');</script>";
             mysqli_query($con, "insert into orders(userId,productId,quantity, productAddOns) values('" . $_SESSION['id'] . "','$qty','$val34','test')");
             header('location:payment-method.php');
         }
+
     }
 }
 
