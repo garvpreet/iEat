@@ -170,6 +170,7 @@ if (isset($_POST['ordersubmit'])) {
                                 $query = mysqli_query($con, $sql);
                                 $totalprice = 0;
                                 $totalqunty = 0;
+                                $discount =0;
                                 if (!empty($query)) {
                                     while ($row = mysqli_fetch_array($query)) {
                                         $quantity = $_SESSION['cart'][$row['id']]['quantity'];
@@ -188,7 +189,7 @@ if (isset($_POST['ordersubmit'])) {
                                             </td>
                                             <td class="cart-image">
                                                 <a class="entry-thumbnail" href="detail.html">
-                                                    <img src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
+                                                    <img class="img-circle" src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
                                                          alt="" width="114" height="146">
                                                 </a>
                                             </td>
@@ -311,10 +312,34 @@ $num=mysqli_num_rows($rt);
                         <thead>
                         <tr>
                             <th>
-
                                 <div class="cart-grand-total">
                                     Grand Total<span
-                                            class="inner-left-md">&dollar; <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+
+                                <div class="cart-product-sub-total">
+                                    <?php
+                                    if ($totalprice > 100) {
+                                        $totalprice = ($totalprice *.80);
+                                        $discount = ($totalprice *.20);
+                                    }
+
+                                    ?>
+                                    Discount<span
+                                            class="inner-left">&dollar; <?php echo $_SESSION['discount'] = "$discount"; ?></span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+
+                                <div class="cart-grand-total">
+                                    Final Price<span
+                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = round($totalprice,3); ?></span>
                                 </div>
                             </th>
                         </tr>
@@ -323,10 +348,18 @@ $num=mysqli_num_rows($rt);
                         <tr>
                             <td>
                                 <div class="cart-checkout-btn pull-right">
-                                    <button type="submit" name="ordersubmit" class="btn btn-primary">PROCCED TO
-                                        CHEKOUT
+                                    <?php
+                                    if (START_TIME > date("h")) {
+                                        ?>
+                                        <button type="submit" name="ordersubmit" class="btn btn-primary">PROCCED TO
+                                            CHECKOUT
+                                        </button>
+                                    <?php } else {?>
+                                    <button type="submit" name="ordersubmit" class="btn btn-primary" disabled>PROCCED TO
+                                        CHECKOUT
                                     </button>
-
+                                    <span>Kitchen is closed now. Please order later.</span>
+                                    <?php } ?>
                                 </div>
                             </td>
                         </tr>

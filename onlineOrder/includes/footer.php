@@ -16,8 +16,8 @@
                         </div>
 
                         <div class="module-body m-t-20">
-                            <p class="about-us"> Nam libero tempore, cum soluta nobis est ses eligendi optio cumque cum
-                                soluta nobis est ses eligendi optio cumque.</p>
+                            <p class="about-us">iEat Restaurent serves mouth-watering freshly prepared pizzas. We wont
+                                give you a chance of disappointment!!</p>
                         </div>
 
                     </div>
@@ -28,7 +28,7 @@
                     <!-- ============================================================= CONTACT TIMING============================================================= -->
                     <div class="contact-timing">
                         <div class="module-heading">
-                            <h4 class="module-title">opening time</h4>
+                            <h4 class="module-title">TIMINGS</h4>
                         </div><!-- /.module-heading -->
 
                         <div class="module-body outer-top-xs">
@@ -36,16 +36,12 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <td>Monday-Friday:</td>
-                                        <td class="pull-right">08.00 To 18.00</td>
+                                        <td>Restaurant Timings</td>
+                                        <td class="pull-right">10am to 10pm</td>
                                     </tr>
                                     <tr>
-                                        <td>Saturday:</td>
-                                        <td class="pull-right">09.00 To 20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sunday:</td>
-                                        <td class="pull-right">10.00 To 20.00</td>
+                                        <td>Kitchen Timings</td>
+                                        <td class="pull-right">11am to 9pm</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -72,7 +68,7 @@
                     </span>
                                     </div>
                                     <div class="media-body">
-                                        <p>New Delhi, Delhi</p>
+                                        <p>Downtown Campus, Concordia University.</p>
                                     </div>
                                 </li>
 
@@ -84,7 +80,7 @@
                     </span>
                                     </div>
                                     <div class="media-body">
-                                        <p>(011) 000000000000<br>(011) 000000000000</p>
+                                        <p><a href=tel:+1-514-514-5141">Call</a></p>
                                     </div>
                                 </li>
 
@@ -96,7 +92,7 @@
                     </span>
                                     </div>
                                     <div class="media-body">
-                                        <span><a href="#">info@phpgurukul.com</a></span>
+                                        <p><a href="mailto:someone@example.com">E-mail</a></p>
                                     </div>
                                 </li>
 
