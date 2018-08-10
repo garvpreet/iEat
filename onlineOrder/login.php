@@ -6,9 +6,10 @@ include('includes/config.php');
 if (isset($_POST['submit'])) {
     $name = $_POST['fullname'];
     $email = $_POST['emailid'];
+    $address = $_POST['address'];
     $contactno = $_POST['contactno'];
     $password = md5($_POST['password']);
-    $query = mysqli_query($con, "insert into users(name,email,contactno,password) values('$name','$email','$contactno','$password')");
+    $query = mysqli_query($con, "insert into users(name,email,contactno,password,shippingAddress) values('$name','$email','$contactno','$password','$address')");
     if ($query) {
         echo "<script>alert('You have been successfully registered.');</script>";
     } else {
@@ -196,16 +197,21 @@ echo htmlentities($_SESSION['errmsg'] = "");
 
 
                         <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
+                            <label class="info-title" for="exampleInputEmail2">Email<span>*</span></label>
                             <input type="email" class="form-control unicase-form-control text-input" id="email"
                                    onBlur="userAvailability()" name="emailid" required>
                             <span id="user-availability-status1" style="font-size:12px;"></span>
                         </div>
 
                         <div class="form-group">
+                            <label class="info-title" for="address">Address <span>*</span></label>
+                            <textarea class="form-control unicase-form-control text-input" id="address" name="address" required></textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label class="info-title" for="contactno">Contact No. <span>*</span></label>
                             <input type="text" class="form-control unicase-form-control text-input" id="contactno"
-                                   name="contactno" maxlength="10" required>
+                                   name="contactno" maxlength="15" required>
                         </div>
 
                         <div class="form-group">
