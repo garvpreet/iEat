@@ -45,14 +45,15 @@ if (isset($_Get['action'])) {
                 if (!empty($_SESSION['cart'])) {
                     ?>
                     <div class="dropdown dropdown-cart">
-                        <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                        <!--<a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">-->
+                        <a href="my-cart.php" class="dropdown-toggle lnk-cart">
                             <div class="items-cart-inner">
                                 <div class="total-price-basket">
-                                    <span class="lbl">Cart -</span>
-                                    <span class="total-price">
-						<span class="sign">&dollar; </span>
-						<span class="value"><?php echo $_SESSION['tp']; ?></span>
-					</span>
+                                    <span class="lbl">Cart</span>
+                                    <!--<span class="total-price">
+                                    <span class="sign">&dollar; </span>
+                                    <span class="value"><?php /*echo $_SESSION['tp']; */?></span>
+					                </span>-->
                                 </div>
                                 <div class="basket">
                                     <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -130,14 +131,15 @@ if (isset($_Get['action'])) {
                     </div><!-- /.dropdown-cart -->
                 <?php } else { ?>
                     <div class="dropdown dropdown-cart">
-                        <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                        <!--<a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">-->
+                        <a href="my-cart.php" class="dropdown-toggle lnk-cart">
                             <div class="items-cart-inner">
                                 <div class="total-price-basket">
-                                    <span class="lbl">Cart -</span>
-                                    <span class="total-price">
+                                    <span class="lbl">Cart</span>
+                                    <!--<span class="total-price">
 						<span class="sign">&dollar;</span>
 						<span class="value">00.00</span>
-					</span>
+					</span>-->
                                 </div>
                                 <div class="basket">
                                     <i class="glyphicon glyphicon-shopping-cart"></i>
