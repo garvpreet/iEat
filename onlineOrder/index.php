@@ -40,7 +40,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
     <!-- Customizable CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/green.css">
+    <link rel="stylesheet" href="assets/css/orange.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/owl.transitions.css">
     <!--<link rel="stylesheet" href="assets/css/owl.theme.css">-->
@@ -109,56 +109,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     </div>
 
                     <!-- ========================================= SECTION – HERO : END ========================================= -->
-                    <!-- ============================================== INFO BOXES ============================================== -->
-                    <div class="info-boxes wow fadeInUp">
-                        <div class="info-boxes-inner">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <i class="icon fa fa-dollar"></i>
-                                            </div>
-                                            <div class="col-xs-10">
-                                                <h4 class="info-box-heading green">POCKET FRIENDLY</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">Competitive Prices in Montreal!</h6>
-                                    </div>
-                                </div><!-- .col -->
-
-                                <div class="hidden-md col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <i class="icon fa fa-car"></i>
-                                            </div>
-                                            <div class="col-xs-10">
-                                                <h4 class="info-box-heading orange">FAST DELIVERY</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">Pioneer in the Pizza Delivery Industry!</h6>
-                                    </div>
-                                </div><!-- .col -->
-
-                                <div class="col-md-6 col-sm-4 col-lg-4">
-                                    <div class="info-box">
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <i class="icon fa fa-cutlery"></i>
-                                            </div>
-                                            <div class="col-xs-10">
-                                                <h4 class="info-box-heading red">EXOTIC PIZZA MENU</h4>
-                                            </div>
-                                        </div>
-                                        <h6 class="text">Delicious, Scrumptious, Fresh Pizzas!</h6>
-                                    </div>
-                                </div><!-- .col -->
-                            </div><!-- /.row -->
-                        </div><!-- /.info-boxes-inner -->
-
-                    </div><!-- /.info-boxes -->
-                    <!-- ============================================== INFO BOXES : END ============================================== -->
                 </div><!-- /.homebanner-holder -->
 
             </div><!-- /.row -->
