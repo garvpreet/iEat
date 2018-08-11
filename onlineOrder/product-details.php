@@ -1,5 +1,12 @@
 <?php
 session_start();
+// clear session during page reload
+/*
+$_SESSION ['mashroom']= '';
+$_SESSION ['olive']= '';
+$_SESSION ['jalapeno']= '';
+$_SESSION ['tomato']= '';
+*/
 error_reporting(0);
 include('includes/config.php');
 if(isset($_GET['action']) && $_GET['action']=="add"){
@@ -11,11 +18,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
         $query_p=mysqli_query($con,$sql_p);
         if(mysqli_num_rows($query_p)!=0){
             $row_p=mysqli_fetch_array($query_p);
-            if ($row_p['category'] ==3){
-                $info = "Extra Cheesse, Peperoni";
-            }
-
-            $_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice'], "addOn" => $info);
+            $_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice']);
             header('location:my-cart.php');
         }else{
             $message="Product ID is invalid";
@@ -23,6 +26,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
     }
 }
 $pid=intval($_GET['pid']);
+/*
 if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
     if(strlen($_SESSION['login'])==0)
     {
@@ -34,7 +38,7 @@ if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
         echo "<script>alert('Product aaded in wishlist');</script>";
         header('location:my-wishlist.php');
     }
-}
+} */ 
 if(isset($_POST['submit']))
 {
     $qty=$_POST['quality'];
@@ -56,7 +60,7 @@ if(isset($_POST['submit']))
     <meta name="author" content="">
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
-    <title>Product Details</title>
+    <title>iEat | Product Details</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
@@ -92,6 +96,7 @@ if(isset($_POST['submit']))
     <!-- ============================================== NAVBAR : END ============================================== -->
 
 </header>
+
 <!-- ============================================== HEADER : END ============================================== -->
 
 <div class="body-content outer-top-xs">
@@ -123,7 +128,8 @@ if(isset($_POST['submit']))
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================== CATEGORY : END ============================================== -->					<!-- ============================================== HOT DEALS ============================================== -->
+                    <!-- ============================================== CATEGORY : END ============================================== -->                   <!-- ============================================== HOT DEALS ============================================== -->
+
 
                     <!-- ============================================== COLOR: END ============================================== -->
                 </div>
@@ -215,6 +221,7 @@ if(isset($_POST['submit']))
                             $num=mysqli_num_rows($rt);
                             {
                                 ?>
+
                             <?php } ?>
                             <div class="stock-container info-container m-t-10">
                                 <div class="row">
@@ -258,7 +265,7 @@ if(isset($_POST['submit']))
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="stock-box">
-											<span class="value"><?php if($row['shippingCharge']==0)
+                                            <span class="value"><?php if($row['shippingCharge']==0)
                                                 {
                                                     echo "Free";
                                                 }
@@ -272,16 +279,146 @@ if(isset($_POST['submit']))
                                 </div><!-- /.row -->
                             </div>
 
+
+                            <div class="stock-container info-container m-t-10" <?php if ($pid!=21 && $pid!=27 && $pid!=28) echo "hidden";?>>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="stock-box">
+                                            <span class="label">Toppings :</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="stock-box">
+                                            <span class="value">
+                                               
+<label>
+    <input id="t1" type="checkbox" <?php if($_SESSION['mashroom']=='mashroom') echo "checked";?> onclick="check1()" value="Mashroom">Mashroom<br>
+    <input id="t2" type="checkbox" <?php if($_SESSION['tomato']=='tomato') echo "checked";?> onclick="check2()" value="Tomato">Tomato<br>
+    <input id="t3" type="checkbox" <?php if($_SESSION['olive']=='olive') echo "checked";?> onclick="check3()" value="olive">Olive<br>
+    <input id="t4" type="checkbox" <?php if($_SESSION['jalapeno']=='jalapeno') echo "checked";?> onclick="check4()" value="jalapeno">Jalapeno<br>
+</label>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#t1").click(function(){
+            var isChecked1 = $('#t1').is(':checked');
+            if(isChecked1){
+                $.post("addTopping.php",
+                {
+                    mashroom: "add_mashroom",
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });         
+            }else{
+                $.post("addTopping.php",
+                {
+                    mashroom: "remove_mashroom",  
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });
+            }
+        });
+
+        $("#t2").click(function(){
+            var isChecked2 = $('#t2').is(':checked');
+            if(isChecked2){
+                $.post("addTopping.php",
+                {
+                    tomato: "add_tomato",
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });         
+            }else{
+                $.post("addTopping.php",
+                {
+                    tomato: "remove_tomato",  
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });
+            }
+        });
+
+        $("#t3").click(function(){
+            var isChecked3 = $('#t3').is(':checked');
+            if(isChecked3){
+                $.post("addTopping.php",
+                {
+                    olive: "add_olive",
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });         
+            }else{
+                $.post("addTopping.php",
+                {
+                    olive: "remove_olive",  
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });
+            }
+        });
+
+        $("#t4").click(function(){
+            var isChecked4 = $('#t4').is(':checked');
+            if(isChecked4){
+                $.post("addTopping.php",
+                {
+                    jalapeno: "add_jalapeno",
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });         
+            }else{
+                $.post("addTopping.php",
+                {
+                    jalapeno: "remove_jalapeno",  
+                },
+                function(data,status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });
+            }
+        });
+        
+        
+        
+    });
+    </script>
+
+
+
+
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- /.row -->
+                            </div>
+
+
                             <div class="price-container info-container m-t-20">
                                 <div class="row">
 
 
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="price-box">
                                             <span class="price">&dollar; <?php echo htmlentities($row['productPrice']);?></span>
                                         </div>
                                     </div>
 
+
+
+
+                                    <div class="col-sm-6">
+
+                                    </div>
 
                                 </div><!-- /.row -->
                             </div><!-- /.price-container -->
@@ -320,6 +457,9 @@ if(isset($_POST['submit']))
 
 
 
+
+
+
                         </div><!-- /.product-info -->
                     </div><!-- /.col-sm-7 -->
                 </div><!-- /.row -->
@@ -330,11 +470,6 @@ if(isset($_POST['submit']))
                         <div class="col-sm-3">
                             <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                 <li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-                                <?php if($row['category']== 3)
-                                {
-                                ?>
-                                <li><a data-toggle="tab" href="#review">Add On</a></li>
-                                <?php } ?>
                             </ul><!-- /.nav-tabs #product-tabs -->
                         </div>
                         <div class="col-sm-9">
@@ -346,35 +481,10 @@ if(isset($_POST['submit']))
                                         <p class="text"><?php echo $row['productDescription'];?></p>
                                     </div>
                                 </div><!-- /.tab-pane -->
-                                <?php if($row['category']== 3)
-                                {
-                                ?>
-                                <div id="review" class="tab-pane">
-                                    <div class="product-tab">
 
-                                        <div class="product-reviews">
-                                            <h4 class="title">Choose add ons</h4>
-                                            <?php $qry=mysqli_query($con,"select * from products where category=0");
-                                            while($rvw=mysqli_fetch_array($qry))
-                                            {
-                                            ?>
 
-                                            <div>
-                                                <div>
-                                                    <div>
-                                                        <input type="checkbox" name="vehicle" value=<?php echo htmlentities($rvw['productName']);?>>
-                                                        <?php echo htmlentities($rvw['productName']);?><br>
-                                                        </span>
-                                                      </div>
-
-                                            </div>
-                                            <?php } ?><!-- /.reviews -->
-                                        </div><!-- /.product-reviews -->
-                                    </div><!-- /.form-container -->
-                                </div><!-- /.review-form -->
 
                             </div><!-- /.product-add-review -->
-                                <?php } ?>
 
                         </div><!-- /.product-tab -->
                     </div><!-- /.tab-pane -->

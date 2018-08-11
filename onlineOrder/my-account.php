@@ -11,10 +11,11 @@ else{
 	{
 		$name=$_POST['name'];
 		$contactno=$_POST['contactno'];
-		$query=mysqli_query($con,"update users set name='$name',contactno='$contactno' where id='".$_SESSION['id']."'");
+		$address=$_POST['address'];
+		$query=mysqli_query($con,"update users set name='$name',contactno='$contactno',shippingAddress='$address' where id='".$_SESSION['id']."'");
 		if($query)
 		{
-echo "<script>alert('Your info has been updated');</script>";
+			echo "<script>alert('Your info has been updated');</script>";
 		}
 	}
 
@@ -25,17 +26,17 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-$sql=mysqli_query($con,"SELECT password FROM  users where password='".md5($_POST['cpass'])."' && id='".$_SESSION['id']."'");
-$num=mysqli_fetch_array($sql);
-if($num>0)
-{
- $con=mysqli_query($con,"update students set password='".md5($_POST['newpass'])."', updationDate='$currentTime' where id='".$_SESSION['id']."'");
-echo "<script>alert('Password Changed Successfully !!');</script>";
-}
-else
-{
-	echo "<script>alert('Current Password not match !!');</script>";
-}
+	$sql=mysqli_query($con,"SELECT password FROM  users where password='".md5($_POST['cpass'])."' && id='".$_SESSION['id']."'");
+	$num=mysqli_fetch_array($sql);
+	if($num>0)
+	{
+	 $con=mysqli_query($con,"update students set password='".md5($_POST['newpass'])."', updationDate='$currentTime' where id='".$_SESSION['id']."'");
+	echo "<script>alert('Password Changed Successfully !!');</script>";
+	}
+	else
+	{
+		echo "<script>alert('Current Password not match !!');</script>";
+	}
 }
 
 ?>
@@ -159,17 +160,21 @@ while($row=mysqli_fetch_array($query))
 ?>
 
 					<form class="register-form" role="form" method="post">
-<div class="form-group">
+						<div class="form-group">
 					    <label class="info-title" for="name">Name<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['name'];?>" id="name" name="name" required="required">
 					  </div>
 
-
-
 						<div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">Email<span>*</span></label>
 			 <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="<?php echo $row['email'];?>" readonly>
 					  </div>
+
+					  <div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Address<span>*</span></label>
+			 <input type="text" class="form-control unicase-form-control text-input" id="address" name="address" value="<?php echo $row['shippingAddress'];?>">
+					  </div>
+
 					  <div class="form-group">
 					    <label class="info-title" for="Contact No.">Contact No. <span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required" value="<?php echo $row['contactno'];?>"  maxlength="10">
