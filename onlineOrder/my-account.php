@@ -11,7 +11,8 @@ else{
 	{
 		$name=$_POST['name'];
 		$contactno=$_POST['contactno'];
-		$query=mysqli_query($con,"update users set name='$name',contactno='$contactno' where id='".$_SESSION['id']."'");
+		$address = $_POST['address'];
+		$query=mysqli_query($con,"update users set name='$name',contactno='$contactno',shippingAddress='$address' where id='".$_SESSION['id']."'");
 		if($query)
 		{
 echo "<script>alert('Your info has been updated');</script>";
@@ -164,12 +165,16 @@ while($row=mysqli_fetch_array($query))
 					    <input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['name'];?>" id="name" name="name" required="required">
 					  </div>
 
-
-
 						<div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">Email<span>*</span></label>
 			 <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="<?php echo $row['email'];?>" readonly>
 					  </div>
+
+					  <div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Address<span>*</span></label>
+			 <input class="form-control unicase-form-control text-input" id="address" name="address" value="<?php echo $row['shippingAddress'];?>">
+					  </div>
+
 					  <div class="form-group">
 					    <label class="info-title" for="Contact No.">Contact No. <span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required" value="<?php echo $row['contactno'];?>"  maxlength="10">
