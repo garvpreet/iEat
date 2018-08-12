@@ -5238,3 +5238,22 @@ footer.footer .contact-information .module-body .media-body p{
 .sidebar-widget .sidebar-widget-body .accordion-toggle.collapsed::after{
   content: none !important;
 }
+
+.shopping-cart .cart-shopping-total th, .shopping-cart .cart-shopping-total td{
+  padding: 15px 25px !important;
+}
+
+.shopping-cart .cart-shopping-total .cart-grand-total{
+  font-size: 18px !important;
+}
+
+.shopping-cart .cart-shopping-total .cart-grand-total .first-element{
+  float: left;
+  width: 200px;
+  text-align: left;
+}
+
+.shopping-cart .cart-shopping-total table tbody tr td .cart-checkout-btn button{
+  margin: 0 !important;
+  float: none !important;
+}

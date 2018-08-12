@@ -315,45 +315,51 @@ $num=mysqli_num_rows($rt);
                         <thead>
                         <tr>
                             <th>
-                                <div class="cart-grand-total">
-                                    Grand Total<span
-                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+                                <div class="cart-grand-total clearfix">
+                                    <span class="first-element">Total</span>
+                                    <span class="second-element">&dollar; <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+
+                                    <!--Grand Total<span class="inner-left">&dollar; <?php /*echo $_SESSION['tp'] = "$totalprice" . ".00"; */?></span>-->
                                 </div>
                             </th>
                         </tr>
                         <tr>
                             <th>
-                                <div class="cart-grand-total">
+                                <div class="cart-grand-total clearfix">
                                     <?php
                                     if ($totalprice > 100) {
                                         $discount = ($totalprice * .20);
                                         $totalprice = ($totalprice * .80);
                                     }
                                     ?>
-                                    Discount<span
-                                            class="inner-left">&dollar; <?php echo $_SESSION['discount'] = "$discount"; ?></span>
+                                    <span class="first-element">Discount</span>
+                                    <span class="second-element">&dollar; <?php echo $_SESSION['discount'] = "$discount"; ?></span>
+                                    <!--Discount<span class="inner-left">&dollar; <?php /*echo $_SESSION['discount'] = "$discount"; */?></span>-->
                                 </div>
                             </th>
                         </tr>
                         <tr>
                             <th>
-                                <div class="cart-grand-total">
+                                <div class="cart-grand-total clearfix">
                                     <?php
-                                    $taxes = ($totalprice * .15);
+                                    $taxes = ($totalprice * 0.14975);
+                                    $taxes = round($taxes, 2);
                                     ?>
-                                    Taxes<span
-                                            class="inner-left">&dollar; <?php echo $_SESSION['taxes'] = "$taxes"; ?></span>
+                                    <span class="first-element">Tax (QST 9.975% + GST 5%)</span>
+                                    <span class="second-element">&dollar; <?php echo $_SESSION['taxes'] = "$taxes"; ?></span>
+                                    <!--Taxes<span class="inner-left">&dollar; <?php /*echo $_SESSION['taxes'] = "$taxes"; */?></span>-->
                                 </div>
                             </th>
                         </tr>
                         <tr>
                             <th>
-                                <div class="cart-grand-total">
+                                <div class="cart-grand-total clearfix">
                                     <?php
                                     $totalprice = ($totalprice + $taxes);
                                     ?>
-                                    Final Price<span
-                                            class="inner-left">&dollar; <?php echo $_SESSION['tp'] = round($totalprice, 3); ?></span>
+                                    <span class="first-element">Final Price</span>
+                                    <span class="second-element">&dollar; <?php echo $_SESSION['tp'] = round($totalprice, 3); ?></span>
+                                    <!--Final Price<span class="inner-left">&dollar; <?php /*echo $_SESSION['tp'] = round($totalprice, 3); */?></span>-->
                                 </div>
                             </th>
                         </tr>
@@ -365,13 +371,10 @@ $num=mysqli_num_rows($rt);
                                     <?php
                                     if (START_TIME > date("h")) {
                                         ?>
-                                        <button type="submit" name="ordersubmit" class="btn btn-primary">PROCCED TO
-                                            CHECKOUT
+                                        <button type="submit" name="ordersubmit" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT
                                         </button>
                                     <?php } else { ?>
-                                        <button type="submit" name="ordersubmit" class="btn btn-primary" disabled>
-                                            PROCCED TO
-                                            CHECKOUT
+                                        <button type="submit" name="ordersubmit" class="btn btn-primary btn-checkout" disabled>PROCEED TO CHECKOUT
                                         </button>
                                         <span>Kitchen is closed now. Please order later.</span>
                                     <?php } ?>
