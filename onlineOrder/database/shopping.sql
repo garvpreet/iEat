@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2018 at 02:26 PM
+-- Generation Time: Aug 12, 2018 at 05:39 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -109,7 +109,14 @@ INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `pay
 (28, 1, 28, 1, '2018-08-03 05:18:18', 'COD', NULL, 'test'),
 (29, 1, 21, 1, '2018-08-03 05:18:58', NULL, NULL, 'test'),
 (30, 1, 21, 1, '2018-08-03 05:19:38', NULL, NULL, 'test'),
-(31, 1, 21, 1, '2018-08-03 05:20:00', NULL, NULL, 'test');
+(31, 1, 21, 1, '2018-08-03 05:20:00', NULL, NULL, 'test'),
+(32, 7, 21, 1, '2018-08-10 01:13:26', 'COD', NULL, 'test'),
+(33, 7, 21, 1, '2018-08-10 04:22:28', 'COD', NULL, 'test'),
+(34, 7, 21, 1, '2018-08-10 23:04:16', NULL, NULL, 'test'),
+(35, 8, 27, 1, '2018-08-10 23:09:18', 'COD', NULL, 'test'),
+(36, 8, 27, 9, '2018-08-10 23:27:54', NULL, NULL, 'test'),
+(37, 8, 22, 2, '2018-08-11 23:00:28', NULL, NULL, 'test'),
+(38, 9, 21, 1, '2018-08-11 23:47:56', 'COD', NULL, 'test');
 
 -- --------------------------------------------------------
 
@@ -193,22 +200,23 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `postingDate`, `updationDate`) VALUES
 (21, 3, 8, 'Veggie Pizza', 'iEat', 9, 9, 'Hand Tossed Veggie Whole: Pizza Sauce, Extra Cheese, Black Olives, Green Pepper, Mushroom, Onion, Tomatoes<br>', 'veggie-pizza.png', 'veggie-pizza.png', 'veggie-pizza.png', 0, 'In Stock', '2018-08-02 17:54:59', NULL),
 (22, 5, 9, 'Coke', 'Coke', 2, 2, 'Coke', 'coke.jpg', 'coke.jpg', 'coke.jpg', 0, 'In Stock', '2018-08-02 18:43:11', NULL),
-(23, 4, 3, 'Chocolate Cake', 'iEat', 5, 5, 'Chocolate Cake', 'chocolate-cake.jpg', 'chocolate-cake.jpg', '', 0, 'In Stock', '2018-08-02 18:44:32', NULL),
-(24, 6, 12, 'Garlic Bread', 'iEat', 3, 3, 'Garlic Bread<br>', 'garlic-bread.jpg', 'garlic-bread.jpg', '', 0, 'In Stock', '2018-08-02 18:45:30', NULL),
-(25, 6, 12, 'Cheesy Bread', 'iEat', 4, 4, 'Cheesy Bread<br>', 'cheesy-bread.jpg', 'cheesy-bread.jpg', '', 0, 'In Stock', '2018-08-02 18:50:44', NULL),
+(23, 4, 3, 'Chocolate Cake', 'iEat', 5, 5, 'Chocolate Cake', 'chocolate-cake.jpg', 'chocolate-cake.jpg', 'chocolate-cake.jpg', 0, 'In Stock', '2018-08-02 18:44:32', NULL),
+(24, 6, 12, 'Garlic Bread', 'iEat', 3, 3, 'Garlic Bread<br>', 'garlic-bread.jpg', 'garlic-bread.jpg', 'garlic-bread.jpg', 0, 'In Stock', '2018-08-02 18:45:30', NULL),
+(25, 6, 12, 'Cheesy Bread', 'iEat', 4, 4, 'Cheesy Bread<br>', 'cheesy-bread.jpg', 'cheesy-bread.jpg', 'cheesy-bread.jpg', 0, 'In Stock', '2018-08-02 18:50:44', NULL),
 (26, 6, 12, 'Parmesan Bites', 'iEat', 3, 3, 'Parmesan Bites<br>', 'parmesian-bread.jpg', 'parmesian-bread.jpg', 'parmesian-bread.jpg', 0, 'In Stock', '2018-08-02 18:52:03', NULL),
-(27, 3, 8, 'Chicken Pizza', 'iEat', 12, 12, 'Chicken Pizza', 'chicken-pizza.jpg', 'chicken-pizza.jpg', '', 0, 'In Stock', '2018-08-02 18:53:04', NULL),
-(28, 3, 8, 'Bacon Pizza', 'iEat', 11, 11, 'Bacon Pizza<br>', 'bacon-pizza.jpg', 'bacon-pizza.jpg', '', 0, 'In Stock', '2018-08-02 18:54:19', NULL),
-(29, 4, 3, 'Cookie Brownie', 'iEat', 7, 7, 'Cookie Brownie<br>', 'cookie-brownie.jpg', 'cookie-brownie.jpg', '', 0, 'In Stock', '2018-08-02 18:55:36', NULL),
-(30, 4, 3, 'Crunch Cake', 'iEat', 6, 6, 'Crunch Cake<br>', 'crunch-cake.jpg', 'crunch-cake.jpg', '', 0, 'In Stock', '2018-08-02 18:57:17', NULL),
+(27, 3, 8, 'Chicken Pizza', 'iEat', 12, 12, 'Chicken Pizza', 'chicken-pizza.jpg', 'chicken-pizza.jpg', 'chicken-pizza.jpg', 0, 'In Stock', '2018-08-02 18:53:04', NULL),
+(28, 3, 8, 'Bacon Pizza', 'iEat', 11, 11, 'Bacon Pizza<br>', 'bacon-pizza.jpg', 'bacon-pizza.jpg', 'bacon-pizza.jpg', 0, 'In Stock', '2018-08-02 18:54:19', NULL),
+(29, 4, 3, 'Cookie Brownie', 'iEat', 7, 7, 'Cookie Brownie<br>', 'cookie-brownie.jpg', 'cookie-brownie.jpg', 'cookie-brownie.jpg', 0, 'In Stock', '2018-08-02 18:55:36', NULL),
+(30, 4, 3, 'Crunch Cake', 'iEat', 6, 6, 'Crunch Cake<br>', 'crunch-cake.jpg', 'crunch-cake.jpg', 'crunch-cake.jpg', 0, 'In Stock', '2018-08-02 18:57:17', NULL),
 (31, 5, 9, 'Ginger Ale', 'iEat', 2, 2, 'Ginger Ale', 'ginger-ale.jpg', 'ginger-ale.jpg', 'ginger-ale.jpg', 0, 'In Stock', '2018-08-02 18:58:49', NULL),
-(32, 5, 9, 'Sprite', 'iEat', 3, 3, 'Sprite', 'sprite.jpg', 'sprite.jpg', '', 0, 'In Stock', '2018-08-02 18:59:50', NULL),
+(32, 5, 9, 'Sprite', 'iEat', 3, 3, 'Sprite', 'sprite.jpg', 'sprite.jpg', 'sprite.jpg', 0, 'In Stock', '2018-08-02 18:59:50', NULL),
 (33, 0, 0, 'Extra Cheese', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
 (300, 0, 0, 'Green peppers', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
 (500, 0, 0, 'Sausage', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
 (2000, 0, 0, 'Black Olives', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
 (2001, 0, 0, 'Pepperoni', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
-(20001, 0, 0, 'jalapeno peppers', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL);
+(20001, 0, 0, 'jalapeno peppers', 'IEat', 0, 0, '<br>', '', '', '', 0, 'In Stock', '2018-08-03 03:07:13', NULL),
+(20002, 5, 9, 'Canada Dry Tonic Water', 'Canada Dry', 2, 2, '<br>', 'canada-dry-tonic-water-355ml_large.jpg', 'canada-dry-tonic-water-355ml_large.jpg', 'canada-dry-tonic-water-355ml_large.jpg', 0, 'Out of Stock', '2018-08-12 15:27:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -261,7 +269,12 @@ INSERT INTO `userlog` (`id`, `userEmail`, `userip`, `loginTime`, `logout`, `stat
 (29, 'mostakim@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-03 01:41:38', '03-08-2018 07:13:28 AM', 1),
 (30, 'mostakim@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-03 01:44:54', NULL, 1),
 (31, 'rahulgoyal0220@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-03 03:01:33', '03-08-2018 10:29:57 PM', 1),
-(32, 'rahulgoyal0220@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-03 17:00:20', NULL, 1);
+(32, 'rahulgoyal0220@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-03 17:00:20', NULL, 1),
+(33, 'test@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-10 01:13:20', NULL, 1),
+(34, 'test@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-10 04:22:25', '10-08-2018 10:58:04 PM', 1),
+(35, 'test@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-10 17:36:27', '11-08-2018 04:37:32 AM', 1),
+(36, 'garvs1401@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-10 23:09:03', '12-08-2018 05:01:17 AM', 1),
+(37, 'dummy123@gmail.com', 0x3a3a3100000000000000000000000000, '2018-08-11 23:33:11', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -293,8 +306,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
 (4, 'Rahul Goyal', 'rahulgoyal0220@gmail.com', 9599708882, '098f6bcd4621d373cade4e832627b4f6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-08-02 02:15:46', NULL),
-(5, 'Garv SIngh', 'garv123@gmail.com', 4389009009, 'ff11c27cd5abdc532d28e7d723b4fbc9', 'Downtown Street', 'Quebec', 'Montreal', NULL, NULL, NULL, NULL, NULL, '2018-08-02 21:44:04', NULL),
-(6, 'Mostakim', 'mostakim@gmail.com', 9876543210, 'fef802ce1795b79d589024311f6272a4', 'Downtown', 'Quebec', 'Montreal', 'H3G2M2', NULL, NULL, NULL, NULL, '2018-08-03 01:41:22', NULL);
+(5, 'Garv SIngh', 'garvs123@gmail.com', 4389009009, 'ff11c27cd5abdc532d28e7d723b4fbc9', 'Downtown Street', 'Quebec', 'Montreal', NULL, NULL, NULL, NULL, NULL, '2018-08-02 21:44:04', NULL),
+(6, 'Mostakim', 'mostakim@gmail.com', 9876543210, 'fef802ce1795b79d589024311f6272a4', 'Downtown', 'Quebec', 'Montreal', 'H3G2M2', NULL, NULL, NULL, NULL, '2018-08-03 01:41:22', NULL),
+(7, 'Test Test', 'test@gmail.com', 911, '098f6bcd4621d373cade4e832627b4f6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-08-10 01:13:08', NULL),
+(8, 'Garv Singh', 'garvs1401@gmail.com', 9119119110, '098f6bcd4621d373cade4e832627b4f6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-08-10 23:08:12', NULL),
+(9, 'Dummy Name', 'dummy123@gmail.com', 9119119110, '275876e34cf609db118f3d84b799a790', 'Concordia University, H3G2M2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-08-11 23:32:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -408,7 +424,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
@@ -426,7 +442,7 @@ ALTER TABLE `productreviews`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20002;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20003;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -438,19 +454,19 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

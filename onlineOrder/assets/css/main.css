@@ -5234,3 +5234,7 @@ footer.footer .contact-information .module-body .media{
 footer.footer .contact-information .module-body .media-body p{
   margin: 7px 0;
 }
+
+.sidebar-widget .sidebar-widget-body .accordion-toggle.collapsed::after{
+  content: none !important;
+}
