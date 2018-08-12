@@ -184,12 +184,13 @@ if (isset($_POST['ordersubmit'])) {
 //print_r($_SESSION['pid'])=$pdtid;exit;
                                         ?>
 
+
                                         <tr>
                                             <td class="romove-item"><input type="checkbox" name="remove_code[]"
                                                                            value="<?php echo htmlentities($row['id']); ?>"/>
                                             </td>
                                             <td class="cart-image">
-                                                <a class="entry-thumbnail" href="detail.html">
+                                                <a class="entry-thumbnail" href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>">
                                                     <img class="img-circle"
                                                          src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
                                                          alt="" width="114" height="146">

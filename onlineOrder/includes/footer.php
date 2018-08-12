@@ -80,7 +80,7 @@
                     </span>
                                     </div>
                                     <div class="media-body">
-                                        <p><a href=tel:+1-514-514-5141">Call</a></p>
+                                        <p><a href=tel:+1-514-514-5141>Call</a></p>
                                     </div>
                                 </li>
 
@@ -92,7 +92,7 @@
                     </span>
                                     </div>
                                     <div class="media-body">
-                                        <p><a href="mailto:someone@example.com">E-mail</a></p>
+                                        <p><a href="mailto:info@ieat.ca">E-mail</a></p>
                                     </div>
                                 </li>
 

@@ -249,28 +249,7 @@ if(isset($_POST['submit']))
                             </div>
 
 
-                            <div class="stock-container info-container m-t-10">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="stock-box">
-                                            <span class="label">Shipping Charge :</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="stock-box">
-											<span class="value"><?php if($row['shippingCharge']==0)
-                                                {
-                                                    echo "Free";
-                                                }
-                                                else
-                                                {
-                                                    echo htmlentities($row['shippingCharge']);
-                                                }
-                                                ?></span>
-                                        </div>
-                                    </div>
-                                </div><!-- /.row -->
-                            </div>
+
 
                             <div class="price-container info-container m-t-20">
                                 <div class="row">
@@ -311,7 +290,12 @@ if(isset($_POST['submit']))
                                     </div>
 
                                     <div class="col-sm-7">
+                                        <?php if($row['productAvailability']=="Out of Stock")
+                                        { ?>
+                                        <a href="product-details.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary disabled"><i class="fa fa-shopping-cart inner-right-vs"></i> OUT OF STOCK</a>
+                                        <?php } else { ?>
                                         <a href="product-details.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                        <?php }?>
                                     </div>
 
 
