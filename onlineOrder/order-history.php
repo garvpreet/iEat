@@ -77,7 +77,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 		<div class="row inner-bottom-sm">
 			<div class="shopping-cart">
 				<div class="col-md-12 col-sm-12 shopping-cart-table ">
-	<div class="table-responsive">
+	<div class="table-responsive"> <h3 style="text-align:center;">My Order History</h3>
 <form name="cart" method="post">	
 
 		<table class="table table-bordered">
@@ -88,8 +88,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 					<th class="cart-product-name item">Product Name</th>
 			
 					<th class="cart-qty item">Quantity</th>
-					<th class="cart-sub-total item">Price Per unit</th>
-					<th class="cart-total item">Grandtotal</th>
+					<th hidden class="cart-sub-total item">Price Per unit</th>
+					<th hidden class="cart-total item">Grandtotal</th>
 					<th class="cart-total item">Payment Method</th>
 					<th class="cart-description item">Order Date</th>
 				</tr>
@@ -118,9 +118,9 @@ while($row=mysqli_fetch_array($query))
 					<td class="cart-product-quantity">
 						<?php echo $qty=$row['qty']; ?>   
 		            </td>
-					<td class="cart-product-sub-total"><?php echo $price=$row['pprice']; ?>  </td>
+					<td hidden class="cart-product-sub-total"><?php echo $price=$row['pprice']; ?>  </td>
 
-					<td class="cart-product-grand-total"><?php echo (($qty*$price)+$shippcharge);?></td>
+					<td hidden class="cart-product-grand-total"><?php echo (($qty*$price)+$shippcharge);?></td>
 					<td class="cart-product-sub-total"><?php echo $row['paym']; ?>  </td>
 					<td class="cart-product-sub-total"><?php echo $row['odate']; ?>  </td>
 					
