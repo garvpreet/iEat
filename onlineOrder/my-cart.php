@@ -326,8 +326,8 @@ $num=mysqli_num_rows($rt);
                                 <div class="cart-grand-total">
                                     <?php
                                     if ($totalprice > 100) {
-                                        $totalprice = ($totalprice * .80);
                                         $discount = ($totalprice * .20);
+                                        $totalprice = ($totalprice * .80);
                                     }
                                     ?>
                                     Discount<span
