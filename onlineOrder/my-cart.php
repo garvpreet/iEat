@@ -40,8 +40,10 @@ if (isset($_POST['ordersubmit'])) {
         $value = array_combine($pdd, $quantity);
 
         foreach ($value as $qty => $val34) {
-            echo "<script>alert('hello');</script>";
-            mysqli_query($con, "insert into orders(userId,productId,quantity, productAddOns) values('" . $_SESSION['id'] . "','$qty','$val34','test')");
+            //echo "<script>alert('hello');</script>";
+            $t = $_SESSION['topping_string'][$qty];
+            mysqli_query($con, "insert into orders(userId,productId,quantity, productAddOns) values('" . $_SESSION['id'] . "','$qty','$val34','$t')");
+
             header('location:payment-method.php');
         }
 
@@ -202,8 +204,8 @@ if (isset($_POST['ordersubmit'])) {
                                                         $_SESSION['sid'] = $pd;
                                                         ?>
                                                         <br>
-                                                        <li>
-                                                            <?php echo $_SESSION['cart'][$row['id']]['addOn']; ?></li>
+                                                        <!-- <li> -->
+                                                            <?php echo $_SESSION['cart'][$row['id']]['addOn']; ?><!-- </li> -->
                                                     </a></h4>
                                                 <!--<div class="row">
 							<div class="col-sm-4">

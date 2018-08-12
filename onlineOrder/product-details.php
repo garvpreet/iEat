@@ -12,7 +12,8 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
         if(mysqli_num_rows($query_p)!=0){
             $row_p=mysqli_fetch_array($query_p);
             if ($row_p['category'] ==3){
-                $info = "Extra Cheesse, Peperoni";
+                //$info = "Extra Cheesse, Peperoni";
+                $info = $_SESSION['topping_string'][$id]; // here $id is pizza_id
             }
 
             $_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice'], "addOn" => $info);
@@ -23,6 +24,9 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
     }
 }
 $pid=intval($_GET['pid']);
+// when product details page opens pizza id added in session (added by mostakim) 
+$_SESSION['pizza_id'] = $pid;
+// ***********************************************************************
 if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
     if(strlen($_SESSION['login'])==0)
     {
@@ -362,13 +366,15 @@ if(isset($_POST['submit']))
                                             <div>
                                                 <div>
                                                     <div>
-                                                        <input type="checkbox" name="vehicle" value=<?php echo htmlentities($rvw['productName']);?>>
+                                                        <input type="checkbox" name="topping" value=<?php echo htmlentities($rvw['productName']);?>>
                                                         <?php echo htmlentities($rvw['productName']);?><br>
                                                         </span>
                                                       </div>
 
                                             </div>
+
                                             <?php } ?><!-- /.reviews -->
+                                            <button onclick="GetSelected()" class="btn btn-primary">Add</button>
                                         </div><!-- /.product-reviews -->
                                     </div><!-- /.form-container -->
                                 </div><!-- /.review-form -->
@@ -435,7 +441,46 @@ if(isset($_POST['submit']))
 </script>
 <!-- For demo purposes – can be removed on production : End -->
 
+<script>
+function GetSelected(){
+    //alert("Working"); 
 
+    var xmlhttp = new XMLHttpRequest();
+    var cboxes = document.getElementsByName('topping');
+    var len = cboxes.length;
+
+    var sel_toppings = [];
+    var totalCheckedItem = 0;
+    var data = "topping=|";
+
+    for (var i=0; i<len; i++) {
+
+        //alert(i + (cboxes[i].checked?' checked ':' unchecked ') + cboxes[i].value);
+
+        if(cboxes[i].checked){
+            totalCheckedItem++;
+            sel_toppings.push(cboxes[i]);
+            //alert(cboxes[i].value+' added');
+
+            xmlhttp.open("POST", "add_toppings.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            data = data + cboxes[i].value + "|";
+            //data = "topping=mashroom|cheese|pepperoni";
+            xmlhttp.send(data);
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    //alert('good');
+               }
+            };
+        }
+
+        
+    }
+}
+</script>
 
 </body>
 </html>
