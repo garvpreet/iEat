@@ -18,6 +18,7 @@
                         <div class="module-body m-t-20">
                             <p class="about-us">iEat Restaurent serves mouth-watering freshly prepared pizzas. We wont
                                 give you a chance of disappointment!!</p>
+                            <p>For order cancellations, kindly call us.</p>
                         </div>
 
                     </div>
