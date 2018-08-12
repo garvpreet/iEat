@@ -26,6 +26,8 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 $pid=intval($_GET['pid']);
 // when product details page opens pizza id added in session (added by mostakim) 
 $_SESSION['pizza_id'] = $pid;
+// clear previous topping binding with this same pizza from session 
+$_SESSION['topping_string'][$pid] = "";
 // ***********************************************************************
 if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
     if(strlen($_SESSION['login'])==0)
